@@ -6,7 +6,7 @@ import { URL } from 'url'
 import axios from 'axios'
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
-import Row from "./comp/row";
+import Row from "../components/row";
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import supabase from "./api/config/supabaseClient";

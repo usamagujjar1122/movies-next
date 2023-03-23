@@ -2,7 +2,7 @@ import { IconButton, Stack, Tab, Tabs, Typography, CircularProgress, Skeleton, G
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import DownloadIcon from '@mui/icons-material/Download';
 import { useEffect, useRef, useState } from 'react';
-import supabase from "../api/config/supabaseClient";
+import supabase from "../pages/api/config/supabaseClient";
 import Link from 'next/link'
 
 const Row = ({ title, type, t, setloading, cat }) => {
