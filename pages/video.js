@@ -6,6 +6,7 @@ import AccessTimeIcon from '@mui/icons-material/AccessTime';
 import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DownloadIcon from '@mui/icons-material/Download';
 import { useSearchParams } from 'next/navigation';
+import Head from "next/head";
 export default function Video() {
     const router = useRouter();
     const searchParams = useSearchParams();
@@ -14,21 +15,20 @@ export default function Video() {
     const [single, setSingle] = useState(item ? item.id.split(',')[0] : null)
     const [itemId, setitemId] = useState(item ? item.id.split(',')[0] : null)
     const [id, setId] = useState(item ? item.id.split(',')[0].split('&')[0] : null)
-    const [title, settitle] = useState(item ?  item.id.split(',')[0].split(',')[0].split('#')[1] : null)
-    const [currentServer, setcurrentServer] = useState(item ?  item.server.split(',')[0] : null)
-    useEffect(()=>{
-        
+    const [title, settitle] = useState(item ? item.id.split(',')[0].split(',')[0].split('#')[1] : null)
+    const [currentServer, setcurrentServer] = useState(item ? item.server.split(',')[0] : null)
+    useEffect(() => {
         setSingle(item && item.id.split(',')[0]);
         setitemId(item && item.id.split(',')[0]);
         setId(item && item.id.split(',')[0].split('&')[0])
-        settitle( item && item.id.split(',')[0].split(',')[0].split('#')[1]);
-        setcurrentServer( item && item.server.split(',')[0])
+        settitle(item && item.id.split(',')[0].split(',')[0].split('#')[1]);
+        setcurrentServer(item && item.server.split(',')[0])
         console.log(title)
-    },[item])
+    }, [item])
     const setbg = () => {
         if (item && item.genera.includes('anime')) {
             return 'url(img/anime.jpg)'
-        } else if ( item && item.genera.includes('cartoon')) {
+        } else if (item && item.genera.includes('cartoon')) {
             return 'url(img/cartoon.jpg)'
         } else if (item.type === "movie") {
             return 'url(img/movie.jpg)'
@@ -60,8 +60,12 @@ export default function Video() {
     }, [id])
     return (
         <>
-        {item && single && id && itemId && currentServer && 
-                    <Stack sx={{ backgroundImage: setbg(), backgroundSize: 'cover', backgroundPosition: 'center', overflowX: 'hidden' }}>
+            <Head>
+                <title>{`title`}</title>
+                <meta name="description" content={`my video`} />
+            </Head>
+            {item && single && id && itemId && currentServer &&
+                <Stack sx={{ backgroundImage: setbg(), backgroundSize: 'cover', backgroundPosition: 'center', overflowX: 'hidden' }}>
                     <Stack sx={{ background: 'rgba(0,0,0,0.8)' }}>
                         <Stack direction="row" sx={{ padding: { xs: "10px", md: '10px' }, justifyContent: 'space-between', marginBottom: { xs: '0px', md: '20px' } }}>
                             <Stack direction='row' sx={{ gap: '10px', alignItems: 'center', '& p': { fontWeight: 'bold' } }}>
@@ -212,4 +216,6 @@ export default function Video() {
         </>
     );
 }
+
+
 
