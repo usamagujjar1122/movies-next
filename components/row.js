@@ -62,7 +62,7 @@ const Row = ({ title, type, t, setloading, cat }) => {
                         <Stack direction={"row"} >
 
                             {filter.map((item, index) => (
-                                <Link style={{ color: 'white' }} href={{ pathname: '/video', query: item }}>
+                                <Link style={{ color: 'white' }} href={{ pathname: `${item.name.replaceAll(' ','-')}`}}>
                                     <Stack className="hovermr" sx={{ overflow: 'hidden', aspectRatio: '9/14', position: 'relative', borderRadius: '10px', margin: { xs: '3px', md: '5px' }, width: { xs: '25vw ', sm: '22vw', md: '20vw', lg: '14vw', '&:hover': { '& img': { transform: 'scale(1.25)' }, '&>div': { opacity: '1' } } }, backgroundColor: 'gray' }} value={index + 1} key={index} label={'item' + (index + 1)} >
                                         <Stack sx={{ overflow: 'hidden', minHeight: '100%', position: 'relative' }}><img onLoad={() => { "loaded" }} src={item.image} alt="" style={{ borderRadius: '5px', transition: 'transform 0.5s', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', height: '100%' }} /></Stack>
                                         <Stack sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', background: "rgba(0,0,0,0.6)", width: '101%', height: '101%', borderRadius: '5px', justifyContent: 'space-between', alignItems: 'center', opacity: '0', transition: 'opacity 0.25s', display: { xs: 'none', md: 'flex' }, cursor: 'pointer' }} >

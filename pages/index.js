@@ -47,10 +47,20 @@ const Home = () => {
 
     return (
         <>
-            <Head> 
-                <title>Entertainment4All</title>
-                <meta name="description" content='"E4A". A platform to watch and download latest movies, web series and anime for free...' />
+             <Head>
+                <title>{`Entertainment4All || Wacth Online and Download`}</title>
+                <meta name="description" content={``} />
+                <meta property="og:title" content={`E4A". Watch Movies, Wes-Series, Anime and cartoon online and download for free... `} />
+                <meta property="og:description" content={`E4A". Watch Movies, Wes-Series, Anime and cartoon online and download for free... `} />
+                <meta property="og:url" content={`https://e4a.live`} />
+                <meta
+                    name="keywords"
+                    content={` e4a, E4A, entertainment4all, e4a live, entertainment4all live, download movies,download webseries,download anime,  watch movies online,watch anime online, match webseries online`}
+                />
+                <meta property="og:type" content="website" />
+                <link rel="icon" href="/favicon.ico" />
             </Head>
+            <main>
             {loading &&
                 <>
                     <AppBar sx={{ zIndex: '100', backgroundColor: '#141414', zIndex: 5, minHeight: '100vh' }}>
@@ -171,7 +181,7 @@ const Home = () => {
                     </Modal>
                 </>
             }
-
+        </main>
         </>
     );
 }
