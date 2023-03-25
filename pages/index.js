@@ -1,7 +1,7 @@
 import { IconButton, Stack, Typography, LinearProgress, Grid, Modal, useMediaQuery, AppBar, CircularProgress } from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import DownloadIcon from '@mui/icons-material/Download';
-import React, { useCallback, useDeferredValue, useEffect, useMemo, useState } from "react";
+import React, { useCallback, useContext, useDeferredValue, useEffect, useMemo, useState } from "react";
 import { URL } from 'url'
 import axios from 'axios'
 import SearchIcon from '@mui/icons-material/Search';
@@ -13,6 +13,12 @@ import supabase from "./api/config/supabaseClient";
 import Link from 'next/link'
 import Head from "next/head";
 const Home = () => {
+    const load = Load()
+    const setload = setLoad()
+    useEffect(()=>{
+        setload(true)
+        console.log(load)
+    },[])
     const catagories = [
         'action','drama','comedy','horror','mystery','adventure'
     ]

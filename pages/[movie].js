@@ -70,7 +70,7 @@ export default function Movie({ item }) {
                 <link rel="icon" href="/favicon.ico" />
             </Head>
             <main >
-                {item && single && id && itemId && currentServer &&
+                {item &&
                     <Stack sx={{ backgroundImage: setbg(), backgroundSize: 'cover', backgroundPosition: 'center', overflowX: 'hidden' }}>
                         <Stack sx={{ background: 'rgba(0,0,0,0.8)' }}>
                             <Stack direction="row" sx={{ padding: { xs: "10px", md: '10px' }, justifyContent: 'space-between', marginBottom: { xs: '0px', md: '20px' } }}>
