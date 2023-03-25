@@ -13,12 +13,6 @@ import supabase from "./api/config/supabaseClient";
 import Link from 'next/link'
 import Head from "next/head";
 const Home = () => {
-    const load = Load()
-    const setload = setLoad()
-    useEffect(()=>{
-        setload(true)
-        console.log(load)
-    },[])
     const catagories = [
         'action','drama','comedy','horror','mystery','adventure'
     ]
