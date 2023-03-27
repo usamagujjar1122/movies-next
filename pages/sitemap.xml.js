@@ -12,7 +12,7 @@ function generateSiteMap(movies) {
      <url>
        <loc>https://jsonplaceholder.typicode.com/guide</loc>
      </url>
-     ${movies && movies
+     ${movies.length >0 && movies
        .map(({ name }) => {
          return `
        <url>
@@ -30,14 +30,15 @@ function SiteMap() {
 }
 
 export async function getServerSideProps({ res }) {
+    console.log('sitemap')
   // We make an API call to gather the URLs for our site
-  const{movies,setmovies} = useState()
+  let movies = []
   const { data, error } = await supabase
     .from('movies')
     .select()
     
     if(data){
-        setmovies(data)
+        movies = data
     }
   // We generate the XML sitemap with the posts data
   const sitemap = generateSiteMap(movies);
@@ -53,3 +54,6 @@ export async function getServerSideProps({ res }) {
 }
 
 export default SiteMap;
+
+
+  
