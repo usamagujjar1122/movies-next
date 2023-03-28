@@ -59,8 +59,8 @@ export default function Movie({ item }) {
             <Head>
                 <title>{`${item.name} || Wacth Online and Download`}</title>
                 <meta name="description" content={`${item.description.slice(0, 145)}...`} />
-                <meta property="og:title" content={`${item.name} || Wacth Online and Download`} />
-                <meta property="og:description" content={`${item.description.slice(0, 145)}...`} />
+                <meta property="og:title" content={`${item.name} || Wacth Online and Free Download `} />
+                <meta property="og:description" content={`${item.name} wacth online and download in 480p, 720p, 1080p and hd for free...`} />
                 <meta property="og:url" content={`https://e4a.live/${item.name}`} />
                 <meta
                     name="keywords"

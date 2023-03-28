@@ -1,9 +1,7 @@
 import { IconButton, Stack, Typography, LinearProgress, Grid, Modal, useMediaQuery, AppBar, CircularProgress } from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import DownloadIcon from '@mui/icons-material/Download';
-import React, { useCallback, useContext, useDeferredValue, useEffect, useMemo, useState } from "react";
-import { URL } from 'url'
-import axios from 'axios'
+import React, {  useDeferredValue,  useMemo, useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import Row from "../components/row";
@@ -14,7 +12,7 @@ import Link from 'next/link'
 import Head from "next/head";
 const Home = () => {
     const catagories = [
-        'action','drama','comedy','horror','mystery','adventure'
+        'Action','Romantic','Adventure','Drama','Comedy','Horror','Mystery','Adventure','TV Shows','Sports','Thriller','Family','Documentry'
     ]
     const matches = useMediaQuery('(min-width:800px)');
     const [loading, setloading] = useState(true)
@@ -112,14 +110,13 @@ const Home = () => {
                             <Stack sx={{ color: 'white', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', background: 'rgba(0,0,0,0.2)', width: '100%', height: '100%' }}> <Typography sx={{ color: 'white', position: 'absolute', top: { xs: '50%', md: '20%' }, left: '50%', transform: 'translate(-50%,-50%)', fontSize: { xs: '1rem', md: '1.5rem', lg: '2rem' }, color: 'white', fontWeight: 'bold', textAlign: 'center', whiteSpace: 'nowrap' }}> Watch online<span style={{ color: '#e50914' }}>  &  </span> download</Typography></Stack>
                         </Stack>
                         <Stack sx={{ position: { xs: 'relative', md: 'absolute' }, bottom: '0%', maxWidth: '100%', margin: { xs: '0px 5px', md: '0px 0px' } }}>
-                            <Row title="Trending" t={false} cat={cat}  />
+                            <Row title="Trending" t={false} cat={cat.toLowerCase()}  />
                         </Stack>
                     </Stack>
                     <Stack sx={{ margin: { xs: '0px 5px', md: '0px 0px' } }}>
-                        <Row  title="Movies"  type='movie' t={true} cat={cat}/>
-                        <Row title="Series" type='series' t={true} cat={cat}/>
-                        <Row  title="Cartoon"  t={false} cat={cat}/>
-                        <Row title="Anime" t={false} setloading={setloading} cat={cat}  />
+                        <Row  title="Movies"  type='movie' t={true} cat={cat.toLowerCase()}/>
+                        <Row title="Series" type='series' t={true} cat={cat.toLowerCase()}/>
+                        <Row title="Anime" t={false} setloading={setloading} cat={cat.toLowerCase()}  />
                     </Stack>
                     <Modal
                         open={openm}
