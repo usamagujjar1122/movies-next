@@ -12,7 +12,7 @@ import Link from 'next/link'
 import Head from "next/head";
 const Home = () => {
     const catagories = [
-        'Action','Romantic','Adventure','Drama','Comedy','Horror','Mystery','Adventure','TV Shows','Sports','Thriller','Family','Documentry'
+        'Action','Romantic','Drama','Comedy','Horror','Mystery','Adventure','TV Shows','Sports','Thriller','Family','Documentry'
     ]
     const matches = useMediaQuery('(min-width:800px)');
     const [loading, setloading] = useState(true)

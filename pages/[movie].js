@@ -81,9 +81,9 @@ export default function Movie({ item }) {
                                         <Link href="/" style={{ textDecoration: 'none', display: matches ? 'none' : 'flex' }}><Typography sx={{ whiteSpace: 'nowrap', fontSize: { xs: '1rem', md: '2rem' }, color: 'white', fontWeight: 'bold', margin: { xs: '5px', md: '20px' }, cursor: 'pointer' }}>E<span style={{ color: '#e50914' }}>4</span>A</Typography></Link>
                                     </Stack>
                                 </Stack>
-                                <Stack direction="row" sx={{justifyContent:'center',padding:{xs:'0px 20px',md:'0px'},gap:{xs:'2px',md:'10px'},marginBottom:'10px','&>p' :{fontSize:{xs:'0.75rem !important',md:'1rem !important'}} }}>
+                                <Stack direction="row" sx={{justifyContent:'center',padding:{xs:'0px 20px',md:'0px'},gap:{xs:'5px',md:'10px'},margin:{xs:'0px 5px 10px 5px',md:'0px 10px 10px 10px'},'&>p' :{fontSize:{xs:'0.75rem !important',md:'1rem !important'}} }}>
                                     <Typography sx={{fontWeight:'bold'}}>Title: </Typography>
-                                    <Typography sx={{textAlign:'center',color:'gray'}}>
+                                    <Typography sx={{textAlign:'left',color:'gray'}}>
                                         {item.name} full {item.type} free download in hd, 720p, 1080p, and watch online for free
                                     </Typography>
                                 </Stack>
