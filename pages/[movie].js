@@ -167,7 +167,7 @@ export default function Movie({ item }) {
                                 {item && item.type === "movie" && <>
                                     <Stack direction={matches ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' } }}>
                                         {/* <Stack sx={{ aspectRatio: '8/5', flex: 2, width: { xs: "100%", md: '50%' } ,'&>iframe':{border:'none'}}}><iframe src={"https://drive.google.com/file/d/" + id + "/preview"} style={{ aspectRatio: '8/5', width: "100%" }} allow="autoplay" allowFullScreen sandbox="allow-same-origin allow-scripts" ></iframe></Stack> */}
-                                        <div style={{ flex: 2, width: { xs: "100%", md: '50%' }, aspectRatio: '8/5',minHeight:'200px', position: "relative" }}>
+                                        <div style={{ flex: 2, width: { xs: "100%",sm:'60%' }, aspectRatio: '8/5',minHeight:{xs:'62.5vw',md:'31.15vw'}, position: "relative" }}>
                                             <iframe src={id} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
                                         </div>
                                         <Stack sx={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: '5px', paddingBottom: '20px' }}>
