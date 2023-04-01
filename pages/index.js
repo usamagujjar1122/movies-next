@@ -136,10 +136,11 @@ const Home = () => {
                                     <>
                                         <Grid container sx={{ justifyContent: 'center'}} spacing={0}>
                                             {filter.map((item, index) => (
-                                                <Stack className="hovermr" sx={{ overflow: 'hidden', aspectRatio: '9/14', position: 'relative', borderRadius: '10px', margin: { xs: '3px', md: '5px' }, width: { xs: '25vw ', sm: '22vw', md: '20vw', lg: '14vw', '&:hover': { '& img': { transform: 'scale(1.25)' }, '&>div': { opacity: '1' } } } }} value={index + 1} key={index} label={'item' + (index + 1)} onClick={() => { navigate('/video', { state: { item: item } }) }}>
+                                                <Link style={{ color: 'white' }} href={{ pathname: `${item.name.replaceAll(' ','-')}`}}>
+                                                <Stack className="hovermr" sx={{ overflow: 'hidden', aspectRatio: '9/14', position: 'relative', borderRadius: '10px', margin: { xs: '3px', md: '5px' }, width: { xs: '25vw ', sm: '22vw', md: '20vw', lg: '14vw', '&:hover': { '& img': { transform: 'scale(1.25)' }, '&>div': { opacity: '1' } } }, backgroundColor: 'gray' }} value={index + 1} key={index} label={'item' + (index + 1)} >
                                                     <Stack sx={{ overflow: 'hidden', minHeight: '100%', position: 'relative' }}><img onLoad={() => { "loaded" }} src={item.image} alt="" style={{ borderRadius: '5px', transition: 'transform 0.5s', position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', height: '100%' }} /></Stack>
-                                                    <Stack sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', background: "rgba(0,0,0,0.6)", width: '101%', height: '101%', borderRadius: '5px', justifyContent: 'space-between', alignItems: 'center', opacity: '0', transition: 'opacity 0.25s', display: { xs: 'none', md: 'flex' }, cursor: 'pointer' }} onClick={() => { navigate('/video', { state: { item: item } }) }}>
-                                                        <Typography sx={{ whiteSpace: 'break-spaces', padding: '5px', fontSize: { xs: '0.75rem', md: '1rem' } }}>{item.name}</Typography>
+                                                    <Stack sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', background: "rgba(0,0,0,0.6)", width: '101%', height: '101%', borderRadius: '5px', justifyContent: 'space-between', alignItems: 'center', opacity: '0', transition: 'opacity 0.25s', display: { xs: 'none', md: 'flex' }, cursor: 'pointer' }} >
+                                                        <Typography sx={{ width: '90%', overflowWrap: 'anywhere', textAlign: 'center', padding: '5px', fontSize: { xs: '0.75rem', md: '1rem' },whiteSpace:'break-spaces' }}>{item.name}</Typography>
                                                         <Stack direction="row" sx={{ justifyContent: 'space-between', alignItems: 'center', padding: '5px', minWidth: '95%' }}>
                                                             <Stack direction="row" sx={{ gap: '10px', justifyContent: 'center', width: '100%' }}>
                                                                 <IconButton sx={{ border: '1px solid gray', borderRadius: '25px', width: 'fit-content !important' }} ><PlayArrowIcon sx={{ color: 'white', fontSize: { xs: '14px !important', md: '1rem !important' } }} /> </IconButton>
@@ -147,7 +148,9 @@ const Home = () => {
                                                             </Stack>
                                                         </Stack>
                                                     </Stack>
+            
                                                 </Stack>
+                                            </Link>
                                             ))}
                                         </Grid>
                                     </>

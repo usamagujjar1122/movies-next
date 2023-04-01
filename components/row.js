@@ -42,6 +42,9 @@ const Row = ({ title, type, t, setloading, cat }) => {
     useEffect(() => {
         setfilter(data.length > 0 ? data.filter(item => item.genera.includes(cat)) : [])
     }, [cat, data])
+    const setRatio = (width) => {
+        return width*2
+    }
     return (
         <>
             <Stack sx={{ marginBottom: { xs: '0px', md: '0px' } }}>
