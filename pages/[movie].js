@@ -88,7 +88,7 @@ export default function Movie({ item }) {
                                     </Typography>
                                 </Stack>
                                 <Stack direction="row" sx={{ margin: { xs: '0px', md: '0px 50px', lg: '0px 150px' }, gap: '20px', display: { xs: 'none', md: 'flex' } }}>
-                                    <Stack sx={{  flex: { md: 2, lg: 1 } }}><img src={item.image} alt="" style={{ width: '100%' }} /></Stack>
+                                    <Stack sx={{  flex: { md: 2, lg: 1} }}><img src={item.image} alt="" style={{ width: '100%' }} /></Stack>
                                     <Stack sx={{ flex: 5 }}>
                                         <Typography sx={{ fontWeight: 'bold', fontSize: '1.8rem' }}>{item.name}</Typography>
                                         <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
