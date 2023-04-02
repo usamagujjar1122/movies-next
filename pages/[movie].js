@@ -57,7 +57,7 @@ export default function Movie({ item }) {
     return (
         <div>
             <Head>
-                <title>{`${item.name} || Watch Online and Download for FREE`}</title>
+                <title>{`${item.name} (${item.date.slice(0, 4)}) Watch Online and Download for FREE`}</title>
                 <meta name="description" content={`${item.name} full ${item.type} in ${item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free...`} />
                 <meta property="og:title" content={`${item.name} || Wacth Online and Free Download `} />
                 <meta property="og:description" content={`${item.name} full ${item.type} in ${item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free...`} />
@@ -84,7 +84,7 @@ export default function Movie({ item }) {
                                 <Stack direction="row" sx={{ margin: { xs: '0px', md: '0px 50px', lg: '0px 150px' }, gap: '20px', display: { xs: 'none', md: 'flex' } }}>
                                     <Stack sx={{  flex: { md: 2, lg: 1} }}><img src={item.image} alt="" style={{ width: '100%' }} /></Stack>
                                     <Stack sx={{ flex: 5 }}>
-                                        <Typography sx={{ fontWeight: 'bold', fontSize: '1.8rem' }}>{item.name}</Typography>
+                                        <Typography sx={{ fontWeight: 'bold', fontSize: '1.8rem' }}>{`${item.name}`}</Typography>
                                         <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
                                             <Stack direction="row" sx={{ gap: '5px', color: 'white' }}>
                                                 <Typography sx={{ fontWeight: 'bold' }}>Genera:</Typography>
@@ -116,7 +116,7 @@ export default function Movie({ item }) {
                                         <Stack sx={{ marginTop: { xs: '10px', md: '20px' } }}>
                                             <Typography sx={{}}> <span style={{ fontWeight: 'bold' }}> Description : </span>
                                              <span style={{ color: 'gray' }}> 
-                                             {item.name} full {item.type} in {item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free.
+                                             {item.name} ({item.date.slice(0, 4)}) full {item.type} in {item.language.split(',')[0].toLowerCase()}  free download hd, 480p, 720p, 1080p, Bluray and watch online free.
                                              </span></Typography>
                                         </Stack>
                                         <Stack sx={{ marginTop: '6px' }}>
@@ -158,7 +158,7 @@ export default function Movie({ item }) {
                                     <Stack sx={{ marginTop: '6px', marginTop: '5px' }}>
                                         <Typography sx={{ fontSize: '0.75rem' }}> <span style={{ fontweight: 'bold' }}> Description : </span> 
                                         <span style={{ color: 'gray', fontSize: '10px' }}> 
-                                            {item.name} full {item.type} in {item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free.
+                                            {item.name} ({item.date.slice(0, 4)}) full {item.type} in {item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free.
                                          </span></Typography>
                                     </Stack>
                                     <Stack sx={{ marginTop: '6px' }}>

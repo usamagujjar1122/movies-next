@@ -11,32 +11,33 @@ const Row = ({ title, type, t, setloading, cat }) => {
     const [l, setl] = useState(false)
     const [s, sets] = useState(0)
     const [e, sete] = useState(10)
-    const [end, setend] = useState(false)    
-    useEffect(() => {
-        const loaddata = async (S, E) => {
-            console.log("loadata")
-            sets(S)
-            sete(E)
-            const { data, error } = await supabase
-                .from('movies')
-                .select()
-                .ilike('genera', t ? '%%' : `%${title.toLowerCase()}%`)
-                .ilike('type', t ? `${type}` : '%%')
-                .range(S, E - 1)
-            if (data) {
-                setdata(prev => prev.concat(data))
-                setl(false)
-                if (data.length < 10) {
-                    setend(true)
-                }
-                if (title == "Anime") {
-                    setloading(false)
-                }
+    const [end, setend] = useState(false) 
+    const loaddata = async (S, E) => {
+        console.log("loadata")
+        sets(S)
+        sete(E)
+        const { data, error } = await supabase
+            .from('movies')
+            .select()
+            .ilike('genera', t ? '%%' : `%${title.toLowerCase()}%`)
+            .ilike('type', t ? `${type}` : '%%')
+            .range(S, E-1)
+        if (data) {
+            console.log(data)
+            setdata(prev => prev.concat(data))
+            setl(false)
+            if (data.length < 10) {
+                setend(true)
             }
-            if (error) {
-                console.log(error)
+            if (title == "Anime") {
+                setloading(false)
             }
         }
+        if (error) {
+            console.log(error)
+        }
+    }   
+    useEffect(() => {
         loaddata(s, e)
     }, [])
     useEffect(() => {
@@ -80,7 +81,7 @@ const Row = ({ title, type, t, setloading, cat }) => {
                             )
                             )}
                             <Stack sx={{ display: end ? 'none' : 'flex', position: 'relative', width: { xs: '20vw ', sm: '18vw', md: '18vw', lg: '10vw' } }}>
-                                <Typography sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', color: 'rgb(229, 9, 20)', fontWeight: 'bold', padding: { xs: '5px', md: '10px' }, background: 'rgba(0,0,0,0.25)', borderRadius: '5px', fontSize: { xs: '0.5rem !important', md: '1rem !important' }, cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center' }} onClick={() => { setl(true); loaddata(s + 10, e + 10) }}> <Typography sx={{ color: 'white', marginRight: { xs: '2px', md: '5px' }, fontWeight: 'bold' }}> Load </Typography> more {l && <CircularProgress sx={{ marginLeft: '10px', color: '#e50914', width: { xs: '12px !important', md: '22px !important' }, height: { xs: '12px !important', md: "22px !important" } }} />} </Typography>
+                                <Typography sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', color: 'rgb(229, 9, 20)', fontWeight: 'bold', padding: { xs: '5px', md: '10px' }, background: 'rgba(0,0,0,0.25)', borderRadius: '5px', fontSize: { xs: '0.5rem !important', md: '1rem !important' }, cursor: 'pointer', display: 'flex', flexDirection: 'row', alignItems: 'center' }} onClick={() => { setl(true); loaddata(s + 10, e + 10) }}> <span style={{ color: 'white', marginRight: { xs: '2px', md: '5px' }, fontWeight: 'bold' }}> Load </span> more {l && <CircularProgress sx={{ marginLeft: '10px', color: '#e50914', width: { xs: '12px !important', md: '22px !important' }, height: { xs: '12px !important', md: "22px !important" } }} />} </Typography>
                             </Stack>
                         </Stack>
                     }
