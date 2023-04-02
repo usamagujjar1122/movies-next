@@ -127,7 +127,7 @@ const Home = () => {
                     >
                         <Stack sx={{alignItems:'center', minHeight: '100vh', background: 'rgba(0,0,0,0.8)' }}>
                             <Stack direction="row" sx={{ border: '1px solid white', alignItems: 'center', borderRadius: '25px', width: "95%", marginBottom: '16px', margin: { md: '50px 0px', xs: '20px 0px' }, opacity: openm ? 1 : 0, transition: 'opacity 05s' }}>
-                                <input type="text" style={{ marginLeft: '10px', background: 'none', border: 'none', outline: 'none', padding: '10px 5px', color: 'white', width: '100%' }} placeholder="Search" value={searchsm} onChange={e => setsearchsm(e.target.value)} />
+                                <input autoFocus type="text" style={{ marginLeft: '10px', background: 'none', border: 'none', outline: 'none', padding: '10px 5px', color: 'white', width: '100%' }} placeholder="Search" value={searchsm} onChange={e => setsearchsm(e.target.value)} />
                                 <CloseIcon sx={{ color: 'white', marginRight: '10px', cursor: 'pointer' }} onClick={handleClose} />
                             </Stack>
                             {l && <CircularProgress sx={{margin:'0px auto',color:'#e50914',width:{xs:'12px !important',md:'22px !important'},height:{xs:'12px !important',md:"22px !important"}}} /> }
