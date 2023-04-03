@@ -157,8 +157,6 @@ const Home = () => {
                                 }
                             </Stack>
                             {searchsm && filter.length === 0 && !l && <Typography sx={{ textAlign: 'center', color: 'white' }}>No results found</Typography>}
-
-
                         </Stack>
 
                     </Modal>
