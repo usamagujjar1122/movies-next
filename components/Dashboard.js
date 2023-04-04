@@ -6,7 +6,7 @@ const Dashboard = () => {
     return ( 
         <>
         <Stack sx={{margin:"0px 10px"}}>
-            <Grid container sx={{alignItems:'center'}} spacing={2} >
+            <Grid container sx={{alignItems:'center',marginBottom:'10px'}} spacing={2} >
             <Grid item xs={12} md={3}>
                 <Stack sx={{alignItems:'center',gap:"10px",justifyContent:'center'}}>
                     <Avatar />

@@ -1,7 +1,24 @@
 import { Avatar, IconButton, Stack, Typography, useMediaQuery } from "@mui/material";
 import Link from "next/link";
 import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
-const EarnNav = ({setopen}) => {
+import { useEffect, useState } from "react";
+const EarnNav = ({setopen,selected}) => {
+    const [title,settitle] = useState('Dashboard')
+    useEffect(()=>{
+        switch (selected) {
+            case 1:
+                settitle('Dashboard')
+                break;
+            case 2:
+                settitle('Team')
+                break;
+            case 3:
+                settitle('Account Settings')
+                break;
+            default:
+                break;
+        }
+    },[selected])
     return ( 
         <>
             <Stack direction="row" sx={{width:'100%',justifyContent:'space-between',backgroundColor:{xs:'#242f3d',md:'inherit'}}}>
@@ -9,7 +26,9 @@ const EarnNav = ({setopen}) => {
                     <IconButton onClick={()=>{setopen(prev=>!prev)}} sx={{display:{xs:"flex",md:'none'}}}>
                         <MenuOutlinedIcon sx={{color:'white'}}/>
                     </IconButton>
-                    <Typography sx={{fontWeight:'bold'}}>Dashboard</Typography>
+                    <Typography sx={{fontWeight:'bold',fontSize:{xs:'1rem',md:"1.5rem"}}}>
+                        {title}
+                    </Typography>
                     <Stack direction="row">
                     <Avatar></Avatar>
                     </Stack>

@@ -12,7 +12,9 @@ import DraftsIcon from '@mui/icons-material/Drafts';
 import Link from "next/link";
 import DashboardOutlinedIcon from '@mui/icons-material/DashboardOutlined';
 import Groups2OutlinedIcon from '@mui/icons-material/Groups2Outlined';
-const EarnSide = ({open,selected,setselected}) => {
+import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
+import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
+const EarnSide = ({open,selected,setselected,setopen}) => {
     const matches = useMediaQuery('(min-width:800px)');
     return (
         <>
@@ -20,7 +22,7 @@ const EarnSide = ({open,selected,setselected}) => {
                 <Link href="/make-money/earn" style={{ textDecoration: 'none',textAlign:'center',justifyContent:'center' }}><Typography sx={{ fontSize: { xs:'1.25rem',md: '2rem' }, color: 'white', fontWeight: 'bold', margin: '20px 20px 0px',  cursor: 'pointer' }}>Earn<span style={{ color: '#e50914' }}>4All</span></Typography></Link>
                     <nav aria-label="main mailbox folders">
                         <List  sx={{ '& span': {fontSize:{xs:'0.75rem !important',md:"1rem !important"}},'& svg': {fontSize:{xs:'1.25rem !important',md:"1.5rem !important"}} }}> 
-                            <ListItem disablePadding className={selected==1?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(1)}}>
+                            <ListItem disablePadding className={selected==1?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(1);setopen(false)}}>
                                 <ListItemButton sx={{'&>.MuiListItemIcon-root':{minWidth:{xs:"36px",md:"56px"}}}}>
                                     <ListItemIcon>
                                         <DashboardOutlinedIcon sx={{color:'white'}}/>
@@ -28,12 +30,28 @@ const EarnSide = ({open,selected,setselected}) => {
                                     <ListItemText primary="Dashboard" />
                                 </ListItemButton>
                             </ListItem>
-                            <ListItem disablePadding className={selected===2?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(2)}}>
+                            <ListItem disablePadding className={selected===2?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(2);setopen(false)}}>
                                 <ListItemButton sx={{'&>.MuiListItemIcon-root':{minWidth:{xs:"36px",md:"56px"}}}}>
                                     <ListItemIcon>
                                         <Groups2OutlinedIcon sx={{color:'white'}} />
                                     </ListItemIcon>
                                     <ListItemText primary="Team" />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding className={selected===3?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(3);setopen(false)}}>
+                                <ListItemButton sx={{'&>.MuiListItemIcon-root':{minWidth:{xs:"36px",md:"56px"}}}}>
+                                    <ListItemIcon>
+                                        <PersonOutlineOutlinedIcon sx={{color:'white'}} />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Account Settings" />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding className={selected===4?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(4);setopen(false)}}>
+                                <ListItemButton sx={{'&>.MuiListItemIcon-root':{minWidth:{xs:"36px",md:"56px"}}}}>
+                                    <ListItemIcon>
+                                        <AttachMoneyOutlinedIcon sx={{color:'white'}} />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Wallet" />
                                 </ListItemButton>
                             </ListItem>
                         </List>
