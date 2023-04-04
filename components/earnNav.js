@@ -1,14 +1,18 @@
-import { Avatar, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Avatar, IconButton, Stack, Typography, useMediaQuery } from "@mui/material";
 import Link from "next/link";
-
-const EarnNav = () => {
-    const matches = useMediaQuery('(min-width:800px)');
+import MenuOutlinedIcon from '@mui/icons-material/MenuOutlined';
+const EarnNav = ({setopen}) => {
     return ( 
         <>
-            <Stack direction="row" sx={{justifyContent:'space-between',padding:"20px 50px"}}>
-                <Link href="/make-money/earn" style={{ textDecoration: 'none', display: matches ? 'flex' : 'none' }}><Typography sx={{ fontSize: { xs: '1rem', md: '1.5rem', lg: '2rem' }, color: 'white', fontWeight: 'bold', marginRight: '20px',  cursor: 'pointer' }}>Earn<span style={{ color: '#e50914' }}>4All</span></Typography></Link>
-                <Stack direction="row">
-                        <Avatar></Avatar>
+            <Stack direction="row" sx={{width:'100%',justifyContent:'space-between',backgroundColor:{xs:'#242f3d',md:'inherit'}}}>
+                <Stack direction="row" sx={{padding:{xs:'10px',md:"20px 50px"},justifyContent:'space-between',width:'100%',alignItems:'center'}}>
+                    <IconButton onClick={()=>{setopen(prev=>!prev)}} sx={{display:{xs:"flex",md:'none'}}}>
+                        <MenuOutlinedIcon sx={{color:'white'}}/>
+                    </IconButton>
+                    <Typography sx={{fontWeight:'bold'}}>Dashboard</Typography>
+                    <Stack direction="row">
+                    <Avatar></Avatar>
+                    </Stack>
                 </Stack>
             </Stack>
         </>
