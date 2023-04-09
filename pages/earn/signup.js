@@ -6,22 +6,25 @@ import PropTypes from 'prop-types';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import { ThemeProvider } from '@mui/material/styles';
-import theme from './theme';
-import Login from "./Login";
-import Register from "./Register";
+import theme from '../../components/theme';
+import Login from "../../components/Login";
+import Register from "../../components/Register";
+import { useRouter } from "next/router";
 
 const SignUP = () => {
-    
+    const [loading,setloading] = useState(true)
+    const router = useRouter()
     const md = useMediaQuery('(min-width:800px)');
-    
-    const handleclick = () => {
-        console.log(password)
-    }
-
+    React.useEffect(()=>{
+        if(localStorage.getItem('e4a')){
+            router.push('/earn')
+        } else {
+            setloading(false)
+        }
+    },[])
     // -------------------------TABS-------------------------- //
     function TabPanel(props) {
         const { children, value, index, ...other } = props;
-
         return (
             <div
                 role="tabpanel"
@@ -57,6 +60,8 @@ const SignUP = () => {
         setValue(newValue);
     };
     return (
+        <>
+        {!loading &&
         <ThemeProvider theme={theme}>
             <Stack sx={{ backgroundColor: '#17212b !important', minHeight: '100vh' }}>
                 <Stack sx={{ '& .css-19kzrtu':{padding:'0px'},padding: { xs: "10px", md: "30px" }, borderRadius: '10px',minHeight:'80vh',maxHeight:'80vh',overflowY:'scroll', backgroundColor: '#2a3842', alignItems: 'center','&::-webkit-scrollbar':{display:'none'}, width: { xs: '90%', md: '60%' }, margin: 'auto' }}>
@@ -80,6 +85,8 @@ const SignUP = () => {
                 </Stack>
             </Stack>
         </ThemeProvider>
+        }
+        </>
     );
 }
 

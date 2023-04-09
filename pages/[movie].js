@@ -7,7 +7,7 @@ import DownloadIcon from '@mui/icons-material/Download';
 import supabase from "./api/config/supabaseClient";
 import Head from "next/head";
 export default function Movie({ item }) {
-    const matches = useMediaQuery('(min-width:800px)');
+    const matches = useMediaQuery('(min-width:900px)');
     const [single, setSingle] = useState(item ? item.id.split(',')[0] : null)
     const [itemId, setitemId] = useState(item ? item.id.split(',')[0] : null)
     const [id, setId] = useState(item ? item.id.split(',')[0].split('&')[0] : null)
@@ -169,9 +169,9 @@ export default function Movie({ item }) {
                                 {item && item.type === "movie" && <>
                                     <Stack direction={matches ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' } }}>
                                         {/* <Stack sx={{ aspectRatio: '8/5', flex: 2, width: { xs: "100%", md: '50%' } ,'&>iframe':{border:'none'}}}><iframe src={"https://drive.google.com/file/d/" + id + "/preview"} style={{ aspectRatio: '8/5', width: "100%" }} allow="autoplay" allowFullScreen sandbox="allow-same-origin allow-scripts" ></iframe></Stack> */}
-                                        <div style={{ flex: 2, width: { xs: "100%",sm:'60%' }, aspectRatio: '8/5',minHeight:{xs:'25vw',sm:'40vw',md:'350px'}, position: "relative" }}>
+                                        <Box sx={{ flex: 2, width: { xs: "100%",md:'60%' },aspectRatio: '8/5', minHeight:{xs:'40vh',sm:'50vh'}, position: "relative" }}>
                                             <iframe src={id} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
-                                        </div>
+                                        </Box>
                                         <Stack sx={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: '5px', paddingBottom: '20px' }}>
                                             <Typography sx={{ fontWeight: 'bold', color: 'white', padding: '10px', paddingTop: '20px' }}>Languages:</Typography>
                                             <Box sx={{ display: 'flex', margin: '0px 20px', flexWrap: 'wrap' }}>
@@ -193,10 +193,10 @@ export default function Movie({ item }) {
                                 }
                                 {item && item.type === "series" && <>
                                     <Stack direction={matches ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' }, '& p': { fontSize: { xs: '0.75rem', md: '1rem' } } }}>
-                                        <div style={{ flex: 2, width: { xs: "100%",sm:'60%' }, aspectRatio: '8/5', position: "relative",minHeight:{xs:'25vw',sm:'40vw',md:'350px'} }}>
+                                        <Box sx={{ flex: 2, width: { xs: "100%",sm:'60%' },aspectRatio: '8/5', minHeight:{xs:'40vh',sm:'50vh'}, position: "relative",minHeight:{xs:'25vw',sm:'40vw',md:'350px'} }}>
                                             <iframe src={id} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
 
-                                        </div>
+                                        </Box>
                                         <Stack sx={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: '5px', paddingBottom: '20px' }}>
 
                                             <Typography sx={{ fontWeight: 'bold', color: 'white', padding: '10px ' }}>Languages:</Typography>

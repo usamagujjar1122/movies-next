@@ -8,8 +8,9 @@ const EarnMain = ({selected}) => {
         <>
             {selected === 1 && <Dashboard />}
             {selected === 2 && <Team />}
-            {selected === 3 && <Profile />}
-            {selected === 4 && <Wallet />}
+            {selected === 3 && <Wallet />}
+            {selected === 4 && <Profile />}
+
         </>
      );
 }

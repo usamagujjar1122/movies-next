@@ -86,10 +86,9 @@ const Row = ({ title, type, t, setloading, cat }) => {
                         </Stack>
                     }
                     {filter.length === 0 &&
-                        <Stack sx={{ position: 'relative', borderRadius: '5px', margin: '5px', minWidth: { xs: '25vw', sm: '22vw', md: '20vw', lg: '14vw', '&:hover': { '&>img': { transform: 'scale(2)' }, '&>div': { opacity: '1' } } }, overflow: 'hidden' }} >
-                            <Skeleton variant="rectangular" sx={{ bgcolor: '#222', width: { xs: '25vw', sm: '22vw', md: '20vw', lg: '14vw', bgcolor: 'grey.900' }, height: { xs: '32vw', sm: '28vw', md: '25vw', lg: '17vw' } }} />
+                        <Stack sx={{ position: 'relative', borderRadius: '5px', margin: '5px',minHeight:{xs: '39vw ', sm: '34vw', md: '31vw', lg: '21.5vw'}, minWidth: { xs: '25vw', sm: '22vw', md: '20vw', lg: '14vw', '&:hover': { '&>img': { transform: 'scale(2)' }, '&>div': { opacity: '1' } } }, overflow: 'hidden' }} >
+                            <Skeleton variant="rectangular" sx={{ bgcolor: '#222',minHeight:{xs: '39vw ', sm: '34vw', md: '31vw', lg: '21.5vw'}, width: { xs: '25vw', sm: '22vw', md: '20vw', lg: '14vw', bgcolor: 'grey.900' }, height: { xs: '32vw', sm: '28vw', md: '25vw', lg: '17vw' } }} />
                             <Typography sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', fontSize: { xs: '8px', md: '12px' }, fontWeight: 'bold', color: 'white', }}>Nothing found</Typography>
-
                         </Stack>
                     }
                     {/* <Stack sx={{ position: 'relative', borderRadius: '5px', margin: '5px', width: { xs: '25vw', sm: '22vw', md: '20vw', lg: '14vw', '&:hover': { '&>img':{transform:'scale(2)'},'&>div': { opacity: '1' } } },overflow:'hidden' }} >
