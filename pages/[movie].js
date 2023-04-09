@@ -59,7 +59,7 @@ export default function Movie({ item }) {
             <Head>
                 <title>{`${item.name} (${item.date.slice(0, 4)}) Watch Online and Download for FREE`}</title>
                 <meta name="description" content={`${item.name} full ${item.type} in ${item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free...`} />
-                <meta property="og:title" content={`${item.name} (${item.date.slice(0, 4)}) Wacth Online and Free Download `} />
+                <meta property="og:title" content={`${item.name} (${item.date.slice(0, 4)}) Watch Online and Free Download `} />
                 <meta property="og:description" content={`${item.name} full ${item.type} in ${item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free...`} />
                 <meta property="og:url" content={`https://e4a.live/${item.name}`} />
                 <meta
