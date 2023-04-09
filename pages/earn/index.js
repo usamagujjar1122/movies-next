@@ -1,9 +1,9 @@
 import { Stack } from "@mui/material";
+import { useEffect, useState } from "react";
+import EarnMain from "../../components/earnMain";
 import EarnNav from "../../components/earnNav";
 import EarnSide from "../../components/earnSide";
-import EarnMain from "../../components/earnMain";
-import { useEffect, useState } from "react";
-import SignUP from "./SIgnUP";
+import SignUPP from './signup';
 const Earn = () => {
     const [open, setopen] = useState(false)
     const [loading, setLoading] = useState(true)
@@ -27,7 +27,7 @@ const Earn = () => {
                     </Stack>
                 </Stack>
                 </>}
-                {!token && !loading && <SignUP />}
+                {!token && !loading && <SignUPP />}
             </>
            
     );

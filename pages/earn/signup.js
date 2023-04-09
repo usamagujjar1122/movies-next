@@ -11,7 +11,7 @@ import Login from "../../components/Login";
 import Register from "../../components/Register";
 import { useRouter } from "next/router";
 
-const SignUP = () => {
+const SignUPP = () => {
     const [loading,setloading] = useState(true)
     const router = useRouter()
     const md = useMediaQuery('(min-width:800px)');
@@ -90,4 +90,4 @@ const SignUP = () => {
     );
 }
 
-export default SignUP;
+export default SignUPP;
