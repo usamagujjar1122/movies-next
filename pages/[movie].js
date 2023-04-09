@@ -9,14 +9,15 @@ import Head from "next/head";
 export default function Movie({ item }) {
     const matches = useMediaQuery('(min-width:900px)');
     const [single, setSingle] = useState(item ? item.id.split(',')[0] : null)
-    const [itemId, setitemId] = useState(item ? item.id.split(',')[0] : null)
+    const [itemId, setitemId] = useState(item ? item.id : null)
     const [id, setId] = useState(item ? item.id.split(',')[0].split('&')[0] : null)
     const [title, settitle] = useState(item ? item.id.split(',')[0].split(',')[0].split('#')[1] : null)
     const [currentServer, setcurrentServer] = useState(item ? item.server.split(',')[0] : null)
     useEffect(() => {
         setSingle(item && item.id.split(',')[0]);
-        setitemId(item && item.id.split(',')[0]);
+        setitemId(item && item.id);
         setId(item && item.id.split(',')[0].split('&')[0])
+        console.log(id)
         settitle(item && item.id.split(',')[0].split(',')[0].split('#')[1]);
         setcurrentServer(item && item.server.split(',')[0])
         console.log(title)
@@ -52,7 +53,7 @@ export default function Movie({ item }) {
         }
     }
     useEffect(() => {
-
+        console.log('useeffect',id)
     }, [id])
     return (
         <div>
@@ -169,7 +170,7 @@ export default function Movie({ item }) {
                                 {item && item.type === "movie" && <>
                                     <Stack direction={matches ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' } }}>
                                         {/* <Stack sx={{ aspectRatio: '8/5', flex: 2, width: { xs: "100%", md: '50%' } ,'&>iframe':{border:'none'}}}><iframe src={"https://drive.google.com/file/d/" + id + "/preview"} style={{ aspectRatio: '8/5', width: "100%" }} allow="autoplay" allowFullScreen sandbox="allow-same-origin allow-scripts" ></iframe></Stack> */}
-                                        <Box sx={{ flex: 2, width: { xs: "100%",md:'60%' },aspectRatio: '8/5', minHeight:{xs:'40vh',sm:'50vh'}, position: "relative" }}>
+                                        <Box sx={{ flex: 2, minWidth: { xs: "100%",md:'60%' },aspectRatio: '8/5', minHeight:{xs:'40vh',sm:'50vh',md:'60vh',lg:'75vh'}, position: "relative" }}>
                                             <iframe src={id} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
                                         </Box>
                                         <Stack sx={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: '5px', paddingBottom: '20px' }}>
@@ -192,10 +193,9 @@ export default function Movie({ item }) {
                                 </>
                                 }
                                 {item && item.type === "series" && <>
-                                    <Stack direction={matches ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' }, '& p': { fontSize: { xs: '0.75rem', md: '1rem' } } }}>
-                                        <Box sx={{ flex: 2, width: { xs: "100%",sm:'60%' },aspectRatio: '8/5', minHeight:{xs:'40vh',sm:'50vh'}, position: "relative",minHeight:{xs:'25vw',sm:'40vw',md:'350px'} }}>
+                                    <Stack direction={useMediaQuery('(min-width:1200px)') ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' }, '& p': { fontSize: { xs: '0.75rem', md: '1rem' } } }}>
+                                        <Box sx={{ flex: 2, width: { xs: "100%",sm:'60%' },margin:'auto',aspectRatio: '8/5', minHeight:{xs:'50vh',md:'60vh',lg:'75vh'}, position: "relative",minHeight:{xs:'25vw',sm:'40vw',md:'350px'} }}>
                                             <iframe src={id} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
-
                                         </Box>
                                         <Stack sx={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: '5px', paddingBottom: '20px' }}>
 
@@ -217,7 +217,7 @@ export default function Movie({ item }) {
                                             <Stack sx={{ gap: '10px', margin: "5px 0px" }}>
                                                 {itemId.split(',').map((itemm, index) => {
                                                     return (
-                                                        <Typography sx={{ color: title === itemm.split('#')[1] ? '#e50914' : 'white', '&:hover': { color: '#e50914' }, cursor: 'pointer', marginLeft: '20px', '&:active': { transform: 'scale(0.95)' }, transition: 'transform 0.2s' }} onClick={() => { { setId(itemm.split('#')[0].split('&')[0]) } { setSingle(itemm) } { settitle(itemm.split('#')[1]) } }}>Episode {+" " + index + 1} : <span >{itemm.split('#')[1]}</span></Typography>
+                                                        <Typography sx={{ color: title === itemm.split('#')[1] ? '#e50914' : 'white', '&:hover': { color: '#e50914' }, cursor: 'pointer', marginLeft: '20px', '&:active': { transform: 'scale(0.95)' }, transition: 'transform 0.2s' }} onClick={() => {setId(itemm.split('#')[0].split('&')[0]);setSingle(itemm);settitle(itemm.split('#')[1]) }}>Episode {+" " + index + 1} : <span >{itemm.split('#')[1]}</span></Typography>
                                                     )
                                                 })}
                                             </Stack>
