@@ -61,6 +61,19 @@ const SignUPP = () => {
     };
     return (
         <>
+        <Head>
+                <title>E4A Referal Program</title>
+                <meta name="description" content={`Entertainment4All is a movies platform that gives free access to latest movies to everyone. Join our referal program, invest $20 and get a chance to earn a desent amount of money...`} />
+                <meta property="og:title" content='E4A Referal Program' />
+                <meta property="og:description" content={`Entertainment4All is a movies platform that gives free access to latest movies to everyone. Join our referal program, invest $20 and get a chance to earn a desent amount of money...`} />
+                <meta property="og:url" content={`https://e4a.live/earn`} />
+                <meta
+                    name="keywords"
+                    content={`e4a referal program, earn money, e4a earn`}
+                />
+                <meta property="og:type" content="website" />
+                <link rel="icon" href="/earn.ico" />
+            </Head>
         {!loading &&
         <ThemeProvider theme={theme}>
             <Stack sx={{ backgroundColor: '#17212b !important', minHeight: '100vh' }}>
