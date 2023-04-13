@@ -4,6 +4,7 @@ import EarnMain from "../../components/earnMain";
 import EarnNav from "../../components/earnNav";
 import EarnSide from "../../components/earnSide";
 import SignUPP from './signup';
+import Head from "next/head";
 const Earn = () => {
     const [open, setopen] = useState(false)
     const [loading, setLoading] = useState(true)
@@ -18,7 +19,7 @@ const Earn = () => {
         <>  
         <Head>
                 <title>E4A Referal Program</title>
-                <meta name="description" content={`Entertainment4All is a movies platform that gives free access to latest movies to everyone. Join our referal program, invest $20 and get a chance to earn a desent amount of money...`} />
+                <meta name="description" content={`Entertainment4All is a movies platform that gives free access to latest movies to everyone. Join our referal program, invest $20 and get a chance to earn a decent amount of money...`} />
                 <meta property="og:title" content='E4A Referal Program' />
                 <meta property="og:description" content={`Entertainment4All is a movies platform that gives free access to latest movies to everyone. Join our referal program, invest $20 and get a chance to earn a desent amount of money...`} />
                 <meta property="og:url" content={`https://e4a.live/earn`} />

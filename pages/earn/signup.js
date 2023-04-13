@@ -10,6 +10,7 @@ import theme from '../../components/theme';
 import Login from "../../components/Login";
 import Register from "../../components/Register";
 import { useRouter } from "next/router";
+import Head from "next/head";
 
 const SignUPP = () => {
     const [loading,setloading] = useState(true)
@@ -63,7 +64,7 @@ const SignUPP = () => {
         <>
         <Head>
                 <title>E4A Referal Program</title>
-                <meta name="description" content={`Entertainment4All is a movies platform that gives free access to latest movies to everyone. Join our referal program, invest $20 and get a chance to earn a desent amount of money...`} />
+                <meta name="description" content={`Entertainment4All is a movies platform that gives free access to latest movies to everyone. Join our referal program, invest $20 and get a chance to earn a decent amount of money...`} />
                 <meta property="og:title" content='E4A Referal Program' />
                 <meta property="og:description" content={`Entertainment4All is a movies platform that gives free access to latest movies to everyone. Join our referal program, invest $20 and get a chance to earn a desent amount of money...`} />
                 <meta property="og:url" content={`https://e4a.live/earn`} />
@@ -74,6 +75,8 @@ const SignUPP = () => {
                 <meta property="og:type" content="website" />
                 <link rel="icon" href="/earn.ico" />
             </Head>
+            <main>
+
         {!loading &&
         <ThemeProvider theme={theme}>
             <Stack sx={{ backgroundColor: '#17212b !important', minHeight: '100vh' }}>
@@ -99,6 +102,7 @@ const SignUPP = () => {
             </Stack>
         </ThemeProvider>
         }
+        </main>
         </>
     );
 }
