@@ -3,6 +3,7 @@ import axios from "axios";
 import Link from "next/link";
 import { useRouter } from "next/router";
 import { useState } from "react";
+import { URL } from "./url";
 
 const Login = () => {
     const [username, setusername] = useState()
@@ -17,7 +18,7 @@ const Login = () => {
         setisLoading(true)
         try {
         let formdata = { username,password }
-        const res = await axios.post('http://localhost:5000/user/login',formdata)
+        const res = await axios.post(`${URL}/user/login`,formdata)
             if(res.data.success){
                 localStorage.setItem('e4a', res.data.token)
                 window.location.reload()
@@ -35,7 +36,8 @@ const Login = () => {
     return (
 
         <>
-            <Alert sx={{ position: 'fixed', top: '7%', left: '50%',transform:'translate(-50%,-50%)', opacity: showalert ? 1 : 0, transition: 'opacity 0.4s',fontSize:{xs:'0.8rem',md:'1rem'},minWidth:{xs:'80vw',md:'inherit'},alignItems:'center' }} severity={alerttype}>{alertmsg}</Alert>
+            <Alert sx={{ position: 'fixed', top: '7%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: showalert? 100: -1 , opacity: showalert ? 1 : 0, transition: 'opacity 0.4s,z-index 1s', fontSize: { xs: '0.8rem', md: '1rem' }, minWidth: { xs: '80vw', md: 'inherit' }, alignItems: 'center' }} severity={alerttype}>{alertmsg}</Alert> 
+            
             <Stack sx={{ alignItems: 'center', gap: {xs:'10px',md:'20px'},padding:'0px' }}>
                 <Typography sx={{ marginTop: '20px', color: 'white', fontWeight: 'bold', fontSize: { xs: '18px', md: '24px' }, whiteSpace: 'nowrap' }}><span style={{ color: '#e50914' }}>LOGIN </span>FORM</Typography>
                 <Stack direction={md ? "row" : 'column'} sx={{ flex: 1, width: { xs: '100%', md: '90%' }, gap: { xs: '5px', md: '20px' }, alignItems: { xs: 'start', md: 'center' } }}>

@@ -17,8 +17,14 @@ const EarnNav = ({setopen,selected}) => {
                 settitle('Wallet')
                 break;
             case 4:
-                settitle('Settings')
+                settitle('Membership')
+                break; 
+            case 5:
+                settitle('Support')
                 break;    
+            case 6:
+                settitle('Settings')
+                break; 
             default:
                 break;
         }

@@ -46,7 +46,7 @@ const Home = () => {
     return (
         <>
              <Head>
-                <title>{`Entertainment4All || Wacth Online and Download`}</title>
+                <title>{`Entertainment4All || Watch Online and Download`}</title>
                 <meta name="description" content={``} />
                 <meta property="og:title" content={`E4A". Watch Movies, Wes-Series, Anime and cartoon online and download for free... `} />
                 <meta property="og:description" content={`E4A". Watch Movies, Wes-Series, Anime and cartoon online and download for free... `} />

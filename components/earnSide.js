@@ -16,6 +16,8 @@ import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import SettingsOutlinedIcon from '@mui/icons-material/SettingsOutlined';
 import CloseIcon from '@mui/icons-material/Close';
+import CardMembershipOutlinedIcon from '@mui/icons-material/CardMembershipOutlined';
+import SupportAgentOutlinedIcon from '@mui/icons-material/SupportAgentOutlined';
 const EarnSide = ({open,selected,setselected,setopen}) => {
     const matches = useMediaQuery('(min-width:800px)');
     return (
@@ -24,7 +26,7 @@ const EarnSide = ({open,selected,setselected,setopen}) => {
                 <IconButton sx={{position:'absolute',right:'0%',top:'2%',display:{xs:'flex',md:'none'}}} onClick={()=>setopen(false)}>
                     <CloseIcon sx={{color:'#e50914'}}/>
                 </IconButton>
-                <Link href="/make-money/earn" style={{ textDecoration: 'none',textAlign:'center',justifyContent:'center' }}><Typography sx={{ fontSize: { xs:'1.25rem',md: '2rem' }, color: 'white', fontWeight: 'bold', margin: '20px 20px 0px',  cursor: 'pointer' }}>Earn<span style={{ color: '#e50914' }}>4All</span></Typography></Link>
+                <Link href="/earn" style={{ textDecoration: 'none',textAlign:'center',justifyContent:'center' }}><Typography sx={{ fontSize: { xs:'1.25rem',md: '2rem' }, color: 'white', fontWeight: 'bold', margin: '20px 20px 0px',  cursor: 'pointer' }}>Earn<span style={{ color: '#e50914' }}>4All</span></Typography></Link>
                     <nav aria-label="main mailbox folders">
                         <List  sx={{ '& span': {fontSize:{xs:'0.9rem !important',md:"1rem !important"}},'& svg': {fontSize:{xs:'1.25rem !important',md:"1.5rem !important"}} }}> 
                             <ListItem disablePadding className={selected==1?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(1);setopen(false)}}>
@@ -54,11 +56,28 @@ const EarnSide = ({open,selected,setselected,setopen}) => {
                             <ListItem disablePadding className={selected===4?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(4);setopen(false)}}>
                                 <ListItemButton sx={{'&>.MuiListItemIcon-root':{minWidth:{xs:"36px",md:"56px"}}}}>
                                     <ListItemIcon>
+                                        <CardMembershipOutlinedIcon sx={{color:'white'}} />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Membership" />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding className={selected===5?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(5);setopen(false)}}>
+                                <ListItemButton sx={{'&>.MuiListItemIcon-root':{minWidth:{xs:"36px",md:"56px"}}}}>
+                                    <ListItemIcon>
+                                        <SupportAgentOutlinedIcon sx={{color:'white'}} />
+                                    </ListItemIcon>
+                                    <ListItemText primary="Support" />
+                                </ListItemButton>
+                            </ListItem>
+                            <ListItem disablePadding className={selected===6?'active' : ''} sx={{'&.active':{color:"red",'& svg':{color:'red'}}}} onClick={()=>{setselected(6);setopen(false)}}>
+                                <ListItemButton sx={{'&>.MuiListItemIcon-root':{minWidth:{xs:"36px",md:"56px"}}}}>
+                                    <ListItemIcon>
                                         <SettingsOutlinedIcon sx={{color:'white'}} />
                                     </ListItemIcon>
                                     <ListItemText primary="Settings" />
                                 </ListItemButton>
                             </ListItem>
+
                            
                         </List>
                     </nav>

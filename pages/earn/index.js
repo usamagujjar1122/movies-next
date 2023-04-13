@@ -23,7 +23,7 @@ const Earn = () => {
                     <EarnSide open={open} selected={selected} setselected={setselected} setopen={setopen}/>
                     <Stack sx={{ flex: 4, gap: "20px"}}>
                         <EarnNav setopen={setopen} selected={selected}/>
-                        <EarnMain selected={selected} />
+                        <EarnMain selected={selected} setselected={setselected}/>
                     </Stack>
                 </Stack>
                 </>}

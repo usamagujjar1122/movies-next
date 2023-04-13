@@ -117,7 +117,7 @@ export default function Movie({ item }) {
                                         <Stack sx={{ marginTop: { xs: '10px', md: '20px' } }}>
                                             <Typography sx={{}}> <span style={{ fontWeight: 'bold' }}> Description : </span>
                                              <span style={{ color: 'gray' }}> 
-                                             {item.name} ({item.date.slice(0, 4)}) full {item.type} in {item.language.split(',')[0].toLowerCase()}  free download hd, 480p, 720p, 1080p, Bluray and watch online free.
+                                             {item.name} ({item.date.slice(0, 4)}) full {item.type} in {item.language.split(',')[0].toLowerCase()}  free download in hd, 480p, 720p, 1080p, Bluray and watch online for free.
                                              </span></Typography>
                                         </Stack>
                                         <Stack sx={{ marginTop: '6px' }}>
@@ -171,7 +171,7 @@ export default function Movie({ item }) {
                                     <Stack direction={matches ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' } }}>
                                         {/* <Stack sx={{ aspectRatio: '8/5', flex: 2, width: { xs: "100%", md: '50%' } ,'&>iframe':{border:'none'}}}><iframe src={"https://drive.google.com/file/d/" + id + "/preview"} style={{ aspectRatio: '8/5', width: "100%" }} allow="autoplay" allowFullScreen sandbox="allow-same-origin allow-scripts" ></iframe></Stack> */}
                                         <Box sx={{ flex: 2, minWidth: { xs: "100%",md:'60%' },aspectRatio: '8/5', minHeight:{xs:'40vh',sm:'50vh',md:'60vh',lg:'75vh'}, position: "relative" }}>
-                                            <iframe src={id} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
+                                            <iframe src={'https://dood.yt/e/htdtmugq2z8u'} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
                                         </Box>
                                         <Stack sx={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: '5px', paddingBottom: '20px' }}>
                                             <Typography sx={{ fontWeight: 'bold', color: 'white', padding: '10px', paddingTop: '20px' }}>Languages:</Typography>
