@@ -13,7 +13,7 @@ import Head from "next/head";
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 const Home = () => {
     const catagories = [
-        'Action','Romantic','Drama','Comedy','Horror','Mystery','Adventure','TV Shows','Sports','Thriller','Family','Documentry'
+        'Action','Romantic','Drama','Comedy','Horror','Mystery','Crime','Adventure','sex','TV Shows','Sports','Thriller','Family','Documentry'
     ]
     const matches = useMediaQuery('(min-width:800px)');
     const [loading, setloading] = useState(true)
