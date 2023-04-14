@@ -74,11 +74,13 @@ const Register = () => {
                 setTimeout(() => {
                     setmailing(false)
                 }, 30000);
-            } else {
+            } 
+            setTimeout(() => {
                 setmailing(false)
-            }
+            }, 30000);
+            
         } else {
-            setcotp(otp)
+            setcotp()
             setshowalert(true)
             setaletrtmsg('Please enter email address to send OTP')
             setaletrttype('error')
