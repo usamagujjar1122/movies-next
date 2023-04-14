@@ -1,7 +1,7 @@
 import { IconButton, Stack, Typography, LinearProgress, Grid, Modal, useMediaQuery, AppBar, CircularProgress } from "@mui/material";
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import DownloadIcon from '@mui/icons-material/Download';
-import React, {  useDeferredValue,  useMemo, useState } from "react";
+import React, {  useDeferredValue,  useEffect,  useMemo, useState } from "react";
 import SearchIcon from '@mui/icons-material/Search';
 import CloseIcon from '@mui/icons-material/Close';
 import Row from "../components/row";
@@ -10,6 +10,7 @@ import FilterAltIcon from '@mui/icons-material/FilterAlt';
 import supabase from "./api/config/supabaseClient";
 import Link from 'next/link'
 import Head from "next/head";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 const Home = () => {
     const catagories = [
         'Action','Romantic','Drama','Comedy','Horror','Mystery','Adventure','TV Shows','Sports','Thriller','Family','Documentry'
@@ -21,6 +22,7 @@ const Home = () => {
     const [searchsm, setsearchsm] = useState(null)
     const [openm, setOpenm] = useState(false);
     const [reload, setreload] = useState(false);
+    const [show, setshow] = useState('flex');
     const handleOpen = () => setOpenm(true);
     const handleClose = () => setOpenm(false);
     const [openf, setOpenf] = useState(false);
@@ -41,8 +43,12 @@ const Home = () => {
             return 1
         }
     }
+    useEffect(()=>{
+        setTimeout(() => {
+            setshow('none')
+        }, 15000);
+    },[])
     const filterr = useMemo(() => myLongAsyncFunction(), [defferInput1])
-
     return (
         <>
              <Head>
@@ -72,6 +78,11 @@ const Home = () => {
             }
             {
                 <>
+                    <Link href="/earn">
+                        <IconButton sx={{display:show, width:{xs:'28px',md:'40px'},height:{xs:'28px',md:'40px'},zIndex:100,position:'fixed',bottom:{xs:'10%'},right:{xs:'10%',md:'5%'},background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))",boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)"}}>
+                            <AttachMoneyIcon sx={{color:'white',width:{xs:'20px',md:'32px'},height:{xs:'20px',md:'32px'}}}/>
+                        </IconButton>
+                        </Link>
                     <Stack direction="row" sx={{ justifyContent: 'space-between', position: 'absolute', top: '0%', zIndex: 4, width: '100%', background: 'url(img/nav-shadow.png)' }} >
                         <Stack direction='row' sx={{ gap: '10px', alignItems: 'center', '& p': { fontWeight: 'bold' } }}>
                             <Link href="/" style={{ textDecoration: 'none', display: matches ? 'flex' : 'none' }}><Typography sx={{ fontSize: { xs: '1rem', md: '1.5rem', lg: '2rem' }, color: 'white', fontWeight: 'bold', marginRight: '20px', margin: { xs: '10px', md: '20px' }, cursor: 'pointer' }}>Entertainment<span style={{ color: '#e50914' }}>4All</span></Typography></Link>

@@ -46,6 +46,8 @@ const Dashboard = ({ setselected }) => {
         { dollar: 0.8, percentage: 4 },
         { dollar: 0.6, percentage: 3 },
         { dollar: 0.4, percentage: 2 },
+        { dollar: 0.2, percentage: 1 },
+        { dollar: 0.2, percentage: 1 },
     ]
     return (
         <>

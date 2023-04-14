@@ -1,4 +1,4 @@
-import { Stack, Typography, Button, useMediaQuery, Box } from "@mui/material";
+import { Stack, Typography, Button, useMediaQuery, Box, IconButton } from "@mui/material";
 import Link from 'next/link';
 import { useState, useEffect } from 'react'
 import AccessTimeIcon from '@mui/icons-material/AccessTime';
@@ -6,7 +6,9 @@ import CalendarMonthIcon from '@mui/icons-material/CalendarMonth';
 import DownloadIcon from '@mui/icons-material/Download';
 import supabase from "./api/config/supabaseClient";
 import Head from "next/head";
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 export default function Movie({ item }) {
+    const [show, setshow] = useState('flex');
     const matches = useMediaQuery('(min-width:900px)');
     const [single, setSingle] = useState(item ? item.id.split(',')[0] : null)
     const [itemId, setitemId] = useState(item ? item.id : null)
@@ -53,8 +55,13 @@ export default function Movie({ item }) {
         }
     }
     useEffect(() => {
-        console.log('useeffect',id)
+        console.log('useeffect', id)
     }, [id])
+    useEffect(()=>{
+        setTimeout(() => {
+            setshow('none')
+        }, 15000);
+    },[])
     return (
         <div>
             <Head>
@@ -73,7 +80,11 @@ export default function Movie({ item }) {
             <main >
                 {item &&
                     <>
-
+                        <Link href="/earn">
+                            <IconButton sx={{ display: show, width: { xs: '28px', md: '40px' }, height: { xs: '28px', md: '40px' }, zIndex: 100, position: 'fixed', bottom: { xs: '10%' }, right: { xs: '10%', md: '5%' }, background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))", boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)" }}>
+                                <AttachMoneyIcon sx={{ color: 'white', width: { xs: '20px', md: '32px' }, height: { xs: '20px', md: '32px' } }} />
+                            </IconButton>
+                        </Link>
                         <Stack sx={{ backgroundImage: setbg(), backgroundSize: 'cover', backgroundPosition: 'center', overflowX: 'hidden' }}>
                             <Stack sx={{ background: 'rgba(0,0,0,0.8)' }}>
                                 <Stack direction="row" sx={{ padding: { xs: "10px", md: '10px' }, justifyContent: 'space-between' }}>
@@ -83,19 +94,19 @@ export default function Movie({ item }) {
                                     </Stack>
                                 </Stack>
                                 <Stack direction="row" sx={{ margin: { xs: '0px', md: '0px 50px', lg: '0px 150px' }, gap: '20px', display: { xs: 'none', md: 'flex' } }}>
-                                    <Stack sx={{  flex: { md: 2, lg: 1} }}><img src={item.image} alt="" style={{ width: '100%' }} /></Stack>
+                                    <Stack sx={{ flex: { md: 2, lg: 1 } }}><img src={item.image} alt="" style={{ width: '100%' }} /></Stack>
                                     <Stack sx={{ flex: 5 }}>
                                         <Typography sx={{ fontWeight: 'bold', fontSize: '1.8rem' }}>{`${item.name}`}</Typography>
                                         <Stack direction="row" sx={{ justifyContent: 'space-between' }}>
                                             <Stack direction="row" sx={{ gap: '5px', color: 'white' }}>
                                                 <Typography sx={{ fontWeight: 'bold' }}>Genera:</Typography>
-                                                <Typography sx={{whiteSpace:'break-spaces'}}>{item.genera}</Typography>
+                                                <Typography sx={{ whiteSpace: 'break-spaces' }}>{item.genera}</Typography>
                                             </Stack>
                                             <Stack direction="row" sx={{ gap: '20px' }}>
                                                 <Stack direction="row" sx={{ gap: '5px', alignItems: 'center' }}>
                                                     <AccessTimeIcon sx={{ color: '#e50914', fontSize: '20px', fontWeight: 'bold' }} />
                                                     <Typography>
-                                                            {item.duration}
+                                                        {item.duration}
                                                     </Typography>
                                                 </Stack>
                                                 <Stack direction="row" sx={{ gap: '5px', alignItems: 'center' }}>
@@ -116,9 +127,9 @@ export default function Movie({ item }) {
                                         </Stack>
                                         <Stack sx={{ marginTop: { xs: '10px', md: '20px' } }}>
                                             <Typography sx={{}}> <span style={{ fontWeight: 'bold' }}> Description : </span>
-                                             <span style={{ color: 'gray' }}> 
-                                             {item.name} ({item.date.slice(0, 4)}) full {item.type} in {item.language.split(',')[0].toLowerCase()}  free download in hd, 480p, 720p, 1080p, Bluray and watch online for free.
-                                             </span></Typography>
+                                                <span style={{ color: 'gray' }}>
+                                                    {item.name} ({item.date.slice(0, 4)}) full {item.type} in {item.language.split(',')[0].toLowerCase()}  free download in hd, 480p, 720p, 1080p, Bluray and watch online for free.
+                                                </span></Typography>
                                         </Stack>
                                         <Stack sx={{ marginTop: '6px' }}>
                                             <Typography sx={{ color: 'gray', padding: '5px', fontWeight: "bold", fontSize: { xs: '0.6rem !important', md: '0.75rem !important' } }}> <span style={{ color: '#e50914' }}> Note:</span> Click 2-3 times on video player to start the video. It may take upto 15 seconds to load the video.</Typography>
@@ -127,12 +138,12 @@ export default function Movie({ item }) {
                                 </Stack>
                                 <Stack sx={{ display: { xs: 'flex', md: 'none' }, margin: '0px 20px' }}>
                                     <Stack direction="row" sx={{ gap: '10px' }}>
-                                        <Stack sx={{ flex: 1,minWidth:'15vw' }}><img src={item.image} alt="" style={{ maxWidth: '100%' }} /></Stack>
-                                        <Stack sx={{ flex: 3, maxWidth:'82vw','& p': { fontSize: { xs: '0.7rem', sm: '1rem' } } }}>
+                                        <Stack sx={{ flex: 1, minWidth: '15vw' }}><img src={item.image} alt="" style={{ maxWidth: '100%' }} /></Stack>
+                                        <Stack sx={{ flex: 3, maxWidth: '82vw', '& p': { fontSize: { xs: '0.7rem', sm: '1rem' } } }}>
                                             <Typography sx={{ fontWeight: 'bold', fontSize: '1.25rem !important' }}>{item.name}</Typography>
                                             <Stack direction="row" sx={{ gap: '5px', color: 'white' }}>
                                                 <Typography sx={{ fontWeight: 'bold' }}>Genera:</Typography>
-                                                <Typography sx={{whiteSpace:'break-spaces'}}>{item.genera}</Typography>
+                                                <Typography sx={{ whiteSpace: 'break-spaces' }}>{item.genera}</Typography>
                                             </Stack>
                                             <Stack direction="row" sx={{ gap: '5px', color: 'white' }}>
                                                 <Typography sx={{ fontWeight: 'bold' }}>Language:</Typography>
@@ -157,10 +168,10 @@ export default function Movie({ item }) {
                                         </Stack>
                                     </Stack>
                                     <Stack sx={{ marginTop: '6px', marginTop: '5px' }}>
-                                        <Typography sx={{ fontSize: '0.75rem' }}> <span style={{ fontweight: 'bold' }}> Description : </span> 
-                                        <span style={{ color: 'gray', fontSize: '10px' }}> 
-                                            {item.name} ({item.date.slice(0, 4)}) full {item.type} in {item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free.
-                                         </span></Typography>
+                                        <Typography sx={{ fontSize: '0.75rem' }}> <span style={{ fontweight: 'bold' }}> Description : </span>
+                                            <span style={{ color: 'gray', fontSize: '10px' }}>
+                                                {item.name} ({item.date.slice(0, 4)}) full {item.type} in {item.language.split(',')[0].toLowerCase()} free download hd, 480p, 720p, 1080p, Bluray and watch online free.
+                                            </span></Typography>
                                     </Stack>
                                     <Stack sx={{ marginTop: '6px' }}>
                                         <Typography sx={{ color: 'gray', padding: '5px', fontWeight: "bold", fontSize: { xs: '0.6rem !important', md: '0.75rem !important' } }}> <span style={{ color: '#e50914' }}> Note:</span> Click 2-3 times on video player to start the video. It may take upto 15 seconds to load the video.</Typography>
@@ -170,8 +181,8 @@ export default function Movie({ item }) {
                                 {item && item.type === "movie" && <>
                                     <Stack direction={matches ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' } }}>
                                         {/* <Stack sx={{ aspectRatio: '8/5', flex: 2, width: { xs: "100%", md: '50%' } ,'&>iframe':{border:'none'}}}><iframe src={"https://drive.google.com/file/d/" + id + "/preview"} style={{ aspectRatio: '8/5', width: "100%" }} allow="autoplay" allowFullScreen sandbox="allow-same-origin allow-scripts" ></iframe></Stack> */}
-                                        <Box sx={{ flex: 2, minWidth: { xs: "100%",md:'60%' },aspectRatio: '8/5', minHeight:{xs:'40vh',sm:'50vh',md:'60vh',lg:'75vh'}, position: "relative" }}>
-                                            <iframe src={'https://dood.yt/e/htdtmugq2z8u'} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
+                                        <Box sx={{ flex: 2, minWidth: { xs: "100%", md: '60%' }, aspectRatio: '8/5', minHeight: { xs: '40vh', sm: '50vh', md: '60vh', lg: '75vh' }, position: "relative" }}>
+                                            <iframe src={id} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
                                         </Box>
                                         <Stack sx={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: '5px', paddingBottom: '20px' }}>
                                             <Typography sx={{ fontWeight: 'bold', color: 'white', padding: '10px', paddingTop: '20px' }}>Languages:</Typography>
@@ -194,7 +205,7 @@ export default function Movie({ item }) {
                                 }
                                 {item && item.type === "series" && <>
                                     <Stack direction={useMediaQuery('(min-width:1200px)') ? "row" : 'column'} sx={{ padding: { xs: '20px 0px', md: '50px', lg: '50px 150px' }, gap: { xs: '0px', md: '20px' }, '& p': { fontSize: { xs: '0.75rem', md: '1rem' } } }}>
-                                        <Box sx={{ flex: 2, width: { xs: "100%",sm:'60%' },margin:'auto',aspectRatio: '8/5', minHeight:{xs:'50vh',md:'60vh',lg:'75vh'}, position: "relative",minHeight:{xs:'25vw',sm:'40vw',md:'350px'} }}>
+                                        <Box sx={{ flex: 2, width: { xs: "100%", sm: '60%' }, margin: 'auto', aspectRatio: '8/5', minHeight: { xs: '50vh', md: '60vh', lg: '75vh' }, position: "relative", minHeight: { xs: '25vw', sm: '40vw', md: '350px' } }}>
                                             <iframe src={id} frameborder="0" width="100%" height="100%" allowFullScreen style={{ background: 'black', width: "100%", height: "100%", position: "absolute", left: "0px", top: "0px", overflow: "hidden" }}></iframe>
                                         </Box>
                                         <Stack sx={{ flex: 1, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: '5px', paddingBottom: '20px' }}>
@@ -217,7 +228,7 @@ export default function Movie({ item }) {
                                             <Stack sx={{ gap: '10px', margin: "5px 0px" }}>
                                                 {itemId.split(',').map((itemm, index) => {
                                                     return (
-                                                        <Typography sx={{ color: title === itemm.split('#')[1] ? '#e50914' : 'white', '&:hover': { color: '#e50914' }, cursor: 'pointer', marginLeft: '20px', '&:active': { transform: 'scale(0.95)' }, transition: 'transform 0.2s' }} onClick={() => {setId(itemm.split('#')[0].split('&')[0]);setSingle(itemm);settitle(itemm.split('#')[1]) }}>Episode {+" " + index + 1} : <span >{itemm.split('#')[1]}</span></Typography>
+                                                        <Typography sx={{ color: title === itemm.split('#')[1] ? '#e50914' : 'white', '&:hover': { color: '#e50914' }, cursor: 'pointer', marginLeft: '20px', '&:active': { transform: 'scale(0.95)' }, transition: 'transform 0.2s' }} onClick={() => { setId(itemm.split('#')[0].split('&')[0]); setSingle(itemm); settitle(itemm.split('#')[1]) }}>Episode {+" " + index + 1} : <span >{itemm.split('#')[1]}</span></Typography>
                                                     )
                                                 })}
                                             </Stack>

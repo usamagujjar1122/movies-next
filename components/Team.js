@@ -68,7 +68,7 @@ const Team = () => {
                 </>}
             {!isLoading && refs && 
             <Box sx={{position:'relative',marginBottom:{xs:'20px'}}}>
-            <Stack sx={{ maxWidth:{xs:'90vw',sm:'93vw',md:'100%'},margin:'0px auto',minHeight:'88vh',marginRight:{md:'20px'}, bgcolor: '#242f3d',borderRadius:"5px",'& .css-19kzrtu':{padding:'10px 5px !important'} }}>
+            <Stack sx={{ maxWidth:{xs:'94vw',sm:'93vw',md:'100%'},margin:'0px auto',minHeight:'88vh',marginRight:{md:'20px'}, bgcolor: '#242f3d',borderRadius:"5px",'& .css-19kzrtu':{padding:'10px 5px !important'} }}>
                 <Tabs
                     value={value}
                     onChange={handleChange}
@@ -87,6 +87,8 @@ const Team = () => {
                     <Tab label={`Lv6 (${refs[5].length})`} />
                     <Tab label={`Lv7 (${refs[6].length})`} />
                     <Tab label={`Lv8 (${refs[7].length})`} />
+                    <Tab label={`Lv9 (${refs[8].length})`} />
+                    <Tab label={`Lv10 (${refs[9].length})`} />
                 </Tabs>
                 <TabPanel value={value} index={0} sx={{'&>div':{padding:'0px !important'}}}>
                 <Referal referals={refs[0]}/>
@@ -111,6 +113,12 @@ const Team = () => {
                 </TabPanel>
                 <TabPanel value={value} index={7}>
                 <Referal referals={refs[7]}/>
+                </TabPanel>
+                <TabPanel value={value} index={8}>
+                <Referal referals={refs[8]}/>
+                </TabPanel>
+                <TabPanel value={value} index={9}>
+                <Referal referals={refs[9]}/>
                 </TabPanel>
             </Stack>
             </Box>
