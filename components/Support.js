@@ -41,7 +41,7 @@ const Support = () => {
 
         <>
             <Alert sx={{ position: 'fixed', top: '7%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: showalert? 100: -1 , opacity: showalert ? 1 : 0, transition: 'opacity 0.4s,z-index 1s', fontSize: { xs: '0.8rem', md: '1rem' }, minWidth: { xs: '80vw', md: 'inherit' }, alignItems: 'center' }} severity={alerttype}>{alertmsg}</Alert> 
-            <Stack sx={{ width: '100%',margin:{xs:'10px 0px',md:'20px 0px'} }}>
+            <Stack sx={{ width: '100%',margin:{xs:'0px 0px 20px 0px',md:'0px 20px 20px 0px'} }}>
                 <Stack sx={{ padding: {xs:'10px',md:'20px'}, margin: { xs: '0px 10px', md: '0px 20px 0px 0px' }, backgroundColor: '#242f3d', borderRadius: '10px', minHeight: '80vh' }}>
                     <Stack sx={{ alignItems: 'center', gap: { xs: '10px', md: '20px' }, padding: '0px' }}>
                         <Typography sx={{ marginTop: '20px', color: 'white', fontWeight: 'bold', fontSize: { xs: '18px', md: '24px' }, whiteSpace: 'nowrap' }}><span style={{ color: '#e50914' }}>CUSTOMER </span>SUPPORT</Typography>

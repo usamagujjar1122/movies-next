@@ -1,4 +1,4 @@
-import { Avatar, LinearProgress, Grid, IconButton, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Avatar, LinearProgress, Grid, IconButton, Stack, Typography, useMediaQuery, Alert } from "@mui/material";
 import CardMembershipOutlinedIcon from '@mui/icons-material/CardMembershipOutlined';
 import AttachMoneyOutlinedIcon from '@mui/icons-material/AttachMoneyOutlined';
 import Groups3OutlinedIcon from '@mui/icons-material/Groups3Outlined';
@@ -11,6 +11,9 @@ const Dashboard = ({ setselected }) => {
     const [loading, setLoading] = useState(true)
     const [user, setUser] = useState()
     const [refs, setRefs] = useState()
+    const [showalert, setshowalert] = useState(false)
+    const [alertmsg, setaletrtmsg] = useState('')
+    const [alerttype, setaletrttype] = useState('error')
     useEffect(() => {
         const myFun = async () => {
             const res = await axios.post(`${URL}/user/loaduser`, { token: localStorage.getItem('e4a') })
@@ -19,7 +22,8 @@ const Dashboard = ({ setselected }) => {
                 setRefs(res.data.refs)
                 setLoading(false)
             } else {
-                window.location.rediredt('/signup')
+                localStorage.removeItem('e4a')
+                window.location.reload()
             }
         } 
         myFun()
@@ -45,6 +49,7 @@ const Dashboard = ({ setselected }) => {
     ]
     return (
         <>
+            <Alert sx={{ position: 'fixed', top: '7%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: showalert? 100: -1 , opacity: showalert ? 1 : 0, transition: 'opacity 0.4s,z-index 1s', fontSize: { xs: '0.8rem', md: '1rem' }, minWidth: { xs: '80vw', md: 'inherit' }, alignItems: 'center' }} severity={alerttype}>{alertmsg}</Alert> 
             <Stack sx={{ margin: "0px 10px", minHeight: '100vh' }}>
                 {loading && <>
                     <Stack sx={{ minWidth: '100%', minHeight: '100vh', backgroundColor: 'rgba(0,0,0,0.25)' }}>
@@ -104,6 +109,7 @@ const Dashboard = ({ setselected }) => {
                             </IconButton>
                         </Stack>
                     </Stack>
+                    
                     <Stack sx={{ margin: {xs:'20px 0px 10px 0px',md:'20px 0px'}, alignItems: 'center', gap: '20px', backgroundColor: '#242f3d', borderRadius: "10px", padding: { xs: '16px 10px', md: "26px 20px" } }}>
                         <Typography sx={{ fontWeight: 'bold', fontSize: { xs: "1.25rem", md: "1.5rem" } }}> <span style={{ color: '#e50914' }}> Referal </span> Rewards</Typography>
                         <Stack direction="row" sx={{ width: '100%' }}>
@@ -118,6 +124,29 @@ const Dashboard = ({ setselected }) => {
                                 <Typography sx={{ flex: 1, textAlign: 'center', padding: "0px 0px", fontSize: { xs: '0.8rem', sm: '1rem' }, color: '#e50914' }}>${item.dollar}</Typography>
                             </Stack>
                         ))}
+                    </Stack>
+                    <Stack sx={{ margin: {xs:'20px 0px 20px 0px',md:'20px 0px'}, alignItems: 'center', gap: '20px', backgroundColor: '#242f3d', borderRadius: "10px", padding: { xs: '16px 10px', md: "26px 20px" } }}>
+                        <Typography sx={{ fontWeight: 'bold', fontSize: { xs: "1.25rem", md: "1.5rem" } }}> Extra Bonus <span style={{ color: '#e50914' }}>  Offers</span></Typography>
+                        <Stack  sx={{ width: '100%','&>p':{fontSize:{xs:'0.8rem',md:'1rem'}} }}>
+                            <Typography>
+                                <span style={{color:'#e50914',fontWeight:'bold'}}>1.</span> Add 3 direct VIP1 referals in the same day to get $5 bonus.
+                            </Typography>
+                            <Typography>
+                                <span style={{color:'#e50914',fontWeight:'bold'}}>2.</span> Add 5 direct VIP1 referals in the same day to get $10 bonus.
+                            </Typography>
+                            <Typography sx={{fontSize:{xs:'1rem',md:'1.25rem !important'},marginTop:'10px'}}>
+                                <span style={{color:'#e50914',fontWeight:'bold'}}>Note:</span>                            </Typography>
+                            <Typography sx={{marginLeft:'10px'}}>
+                                <span style={{color:'#e50914',fontWeight:'bold',marginRight:'5px'}}>|</span>To claim your bonus, please contact us at telegram @e4a_official. 
+                            </Typography>
+                            <Typography sx={{marginLeft:'10px'}}>
+                            <span style={{color:'#e50914',fontWeight:'bold',marginRight:'5px'}}>|</span>You must add 3 / 5 VIP1 members in the same day to get your bonus.
+                            </Typography>
+                            <Typography sx={{marginLeft:'10px'}}>
+                            <span style={{color:'#e50914',fontWeight:'bold',marginRight:'5px'}}>|</span> Day refreshes at 00:00 UTC.
+                            </Typography>
+                        </Stack>
+                       
                     </Stack>
                 </>
                 }

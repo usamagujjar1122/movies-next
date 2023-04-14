@@ -5,6 +5,7 @@ import CardMembershipOutlinedIcon from '@mui/icons-material/CardMembershipOutlin
 import Buttonn from "./Button";
 import axios from "axios";
 import Groups3OutlinedIcon from '@mui/icons-material/Groups3Outlined';
+import { URL } from "./url";
 
 const Membership = ({setselected}) => {
     const [user, setUser] = useState()
@@ -14,7 +15,7 @@ const Membership = ({setselected}) => {
 
     useEffect(() => {
         const myFun = async () => {
-            const res = await axios.post('http://localhost:5000/user/loaduser', { token: localStorage.getItem('e4a') })
+            const res = await axios.post(`${URL}/user/loaduser`, { token: localStorage.getItem('e4a') })
             if (res.data.success) {
                 switch (res.data.data.vip) {
                     case 0:
@@ -44,7 +45,7 @@ const Membership = ({setselected}) => {
                     </Stack>
              </>}
             {user && !loading && <>
-            <Stack sx={{marginBottom:'20px'}}>
+            <Stack sx={{marginBottom:'20px',minHeight:'90vh'}}>
                 <Stack sx={{ margin: { xs: "0px 20px", md: '0px 20px 0px 0px' } }}>
                     <Grid container sx={{ alignItems: 'center' }} spacing={2} >
                         <Grid item xs={12} md={4}>

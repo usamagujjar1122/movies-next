@@ -16,7 +16,6 @@ const Buttonn = ({ price, level,vip }) => {
                 setshowalert(true)
                 setaletrtmsg(res.data.message)
                 setaletrttype('success')
-                setisLoading(false)
                 setTimeout(() => {
                     setshowalert(false)
                 }, 5000);

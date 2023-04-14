@@ -80,7 +80,7 @@ const SignUPP = () => {
         {!loading &&
         <ThemeProvider theme={theme}>
             <Stack sx={{ backgroundColor: '#17212b !important', minHeight: '100vh' }}>
-                <Stack sx={{ '& .css-19kzrtu':{padding:'0px'},padding: { xs: "10px", md: "30px" }, borderRadius: '10px',minHeight:'80vh',maxHeight:'90vh',overflowY:'scroll', backgroundColor: '#2a3842', alignItems: 'center','&::-webkit-scrollbar':{display:'none'}, width: { xs: '90%', md: '60%' }, margin: 'auto' }}>
+                <Stack sx={{ '& .css-19kzrtu':{padding:'0px'},padding: { xs: "10px", md: "30px" }, borderRadius: '10px',minHeight:{xs:'90vh',md:'80vh'},maxHeight:{xs:'90vh',md:'80vh'},overflowY:'scroll', backgroundColor: '#2a3842', alignItems: 'center','&::-webkit-scrollbar':{display:'none'}, width: { xs: '90%', md: '60%' }, margin: 'auto' }}>
                     <Box sx={{ width: '100%' }}>
                         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
                             <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" sx={{ '& .MuiTabs-flexContainer': { justifyContent: 'space-around' } }} textColor="primary" indicatorColor="primary">

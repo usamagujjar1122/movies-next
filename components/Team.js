@@ -67,7 +67,7 @@ const Team = () => {
                     </Stack>
                 </>}
             {!isLoading && refs && 
-            <Box sx={{position:'relative',marginBottom:{xs:'10px',md:'20px'}}}>
+            <Box sx={{position:'relative',marginBottom:{xs:'20px'}}}>
             <Stack sx={{ maxWidth:{xs:'90vw',sm:'93vw',md:'100%'},margin:'0px auto',minHeight:'88vh',marginRight:{md:'20px'}, bgcolor: '#242f3d',borderRadius:"5px",'& .css-19kzrtu':{padding:'10px 5px !important'} }}>
                 <Tabs
                     value={value}
