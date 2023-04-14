@@ -1,4 +1,4 @@
-import { Alert, Box, Button, CircularProgress, Stack, Typography, useMediaQuery } from "@mui/material";
+import { Alert, Box, Button, LinearProgress,CircularProgress, Stack, Typography, useMediaQuery } from "@mui/material";
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
@@ -15,31 +15,31 @@ const Profile = () => {
     const [opassword, setopassword] = useState()
     const [cpassword, setcpassword] = useState()
     const md = useMediaQuery('(min-width:800px)');
-    const [isLoading, setisLoading] = useState(false)
+    const [isLoading, setisLoading] = useState(true)
     const [isLoading1, setisLoading1] = useState(false)
-    const updateprofile = async () => {
-        try {
-            setisLoading(true)
-            const res = await axios.post(`${URL}/user/updateprofile`, { token: localStorage.getItem('e4a'), name: name, country: country })
-            if (res.data.success) {
-                setshowalert(true)
-                setaletrtmsg(res.data.message)
-                setaletrttype('success')
-                setTimeout(() => {
-                    setshowalert(false)
-                }, 5000);
-                setisLoading(false)
-            }
-        } catch (error) {
-            setshowalert(true)
-            setaletrtmsg(error.response.data.message)
-            setaletrttype('error')
-            setTimeout(() => {
-                setshowalert(false)
-            }, 5000);
-            setisLoading(false)
-        }
-    }
+    // const updateprofile = async () => {
+    //     try {
+    //         setisLoading(true)
+    //         const res = await axios.post(`${URL}/user/updateprofile`, { token: localStorage.getItem('e4a'), name: name, country: country })
+    //         if (res.data.success) {
+    //             setshowalert(true)
+    //             setaletrtmsg(res.data.message)
+    //             setaletrttype('success')
+    //             setTimeout(() => {
+    //                 setshowalert(false)
+    //             }, 5000);
+    //             setisLoading(false)
+    //         }
+    //     } catch (error) {
+    //         setshowalert(true)
+    //         setaletrtmsg(error.response.data.message)
+    //         setaletrttype('error')
+    //         setTimeout(() => {
+    //             setshowalert(false)
+    //         }, 5000);
+    //         setisLoading(false)
+    //     }
+    // }
     const updatepassword = async () => {
         try {
             setisLoading1(true)
@@ -78,9 +78,9 @@ const Profile = () => {
     return (
         <>
             {isLoading && <>
-                <Box sx={{ minWidth: '100%', minHeight: '87vh', position: 'relative' }}>
-                    <CircularProgress sx={{ position: 'absolute', top: "50%", left: '50%', transform: 'translate(-50%,-50%)' }} />
-                </Box>
+                <Stack sx={{ minWidth: '100%', minHeight: '100vh', backgroundColor: 'rgba(0,0,0,0.25)' }}>
+                        <LinearProgress color="error" />
+                    </Stack>
             </>}
             {!isLoading && user &&
                 <>

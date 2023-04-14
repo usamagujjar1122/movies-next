@@ -81,8 +81,8 @@ const SignUPP = () => {
                 {!loading &&
                     <ThemeProvider theme={theme}>
                         <Link href="/">
-                            <IconButton sx={{ width: { xs: '28px', md: '40px' }, height: { xs: '28px', md: '40px' }, zIndex: 100, position: 'fixed', bottom: { xs: '10%' }, right: { xs: '10%', md: '5%' }, background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))", boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)" }}>
-                                <LiveTvIcon sx={{ color: 'white', width: { xs: '18px', md: '26px' }, height: { xs: '18px', md: '26px' },transform:'translateY(-2px)' }} />
+                            <IconButton sx={{ width: '40px' , height:'40px' , zIndex: 100, position: 'fixed', bottom: { xs: '10%' }, right: { xs: '10%', md: '5%' }, background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))", boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)" }}>
+                                <LiveTvIcon sx={{ color: 'white', width: '26px' , height:  '26px' ,transform:'translateY(-2px)' }} />
                             </IconButton>
                         </Link>
                         <Stack sx={{ backgroundColor: '#17212b !important', minHeight: '100vh' }}>

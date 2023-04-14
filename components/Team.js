@@ -15,7 +15,8 @@ const Team = () => {
         const myFun = async () => {
             const res = await axios.post(`${URL}/user/referals`, {token : localStorage.getItem('e4a')})
             if(res.data.success){
-            setrefs(res.data.data)
+            console.log(res.data.refs)
+                setrefs(res.data.data)
             setisLoading(false)
             }
         }

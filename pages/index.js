@@ -79,8 +79,8 @@ const Home = () => {
             {
                 <>
                     <Link href="/earn">
-                        <IconButton sx={{display:show, width:{xs:'28px',md:'40px'},height:{xs:'28px',md:'40px'},zIndex:100,position:'fixed',bottom:{xs:'10%'},right:{xs:'10%',md:'5%'},background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))",boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)"}}>
-                            <AttachMoneyIcon sx={{color:'white',width:{xs:'20px',md:'32px'},height:{xs:'20px',md:'32px'}}}/>
+                        <IconButton sx={{display:show, width:'40px',height:'40px',zIndex:100,position:'fixed',bottom:{xs:'10%'},right:{xs:'10%',md:'5%'},background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))",boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)"}}>
+                            <AttachMoneyIcon sx={{color:'white',width:'32px',height:'32px'}}/>
                         </IconButton>
                         </Link>
                     <Stack direction="row" sx={{ justifyContent: 'space-between', position: 'absolute', top: '0%', zIndex: 4, width: '100%', background: 'url(img/nav-shadow.png)' }} >
