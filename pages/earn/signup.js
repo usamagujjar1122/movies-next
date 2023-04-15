@@ -61,6 +61,7 @@ const SignUPP = () => {
     const handleChange = (event, newValue) => {
         setValue(newValue);
     };
+    const MAINTAIN = process.env.MAINTAIN
     return (
         <>
             <Head>
@@ -77,8 +78,17 @@ const SignUPP = () => {
                 <link rel="icon" href="/earn.ico" />
             </Head>
             <main>
-
-                {!loading &&
+            {MAINTAIN && <>
+                    <Stack sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', alignItems: 'center' }}>
+                        <Typography sx={{ fontWeight: 'bold', whiteSpace: 'nowrap' }}>Under<span style={{ color: '#e50914' }}> Maintainance...</span> </Typography>
+                    </Stack>
+                    <Link href="/">
+                        <IconButton sx={{ width: '40px' , height: '40px' , zIndex: 100, position: 'fixed', bottom: { xs: '10%' }, right: { xs: '10%', md: '5%' }, background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))", boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)" }}>
+                            <LiveTvIcon sx={{ color: 'white', width: '26px' , height: '26px' , transform: 'translateY(-2px)' }} />
+                        </IconButton>
+                    </Link>
+                </>}
+                {!loading && !MAINTAIN && 
                     <ThemeProvider theme={theme}>
                         <Link href="/">
                             <IconButton sx={{ width: '40px' , height:'40px' , zIndex: 100, position: 'fixed', bottom: { xs: '10%' }, right: { xs: '10%', md: '5%' }, background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))", boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)" }}>
@@ -96,7 +106,7 @@ const SignUPP = () => {
                                     </Box>
                                     <TabPanel value={value} index={0} >
                                         {/* ---------------------------Register-------------------- */}
-                                        <Register />
+                                        <Register setValue={setValue}/>
                                     </TabPanel>
                                     <TabPanel value={value} index={1}>
                                         {/* ---------------------------Login-------------------------- */}

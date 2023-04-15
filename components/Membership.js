@@ -46,7 +46,7 @@ const Membership = ({setselected}) => {
              </>}
             {user && !loading && <>
             <Stack sx={{marginBottom:'20px',minHeight:'90vh'}}>
-                <Stack sx={{ margin: { xs: "0px 20px", md: '0px 20px 0px 0px' } }}>
+                <Stack sx={{ margin: { xs: "0px 10px", md: '0px 20px 0px 0px' } }}>
                     <Grid container sx={{ alignItems: 'center' }} spacing={2} >
                         <Grid item xs={12} md={4}>
                             <Stack direction="row" sx={{ alignItems: 'center', gap: '20px', backgroundColor: '#242f3d', borderRadius: "10px", padding: { xs: '16px 10px', md: "26px 10px" } }}>
@@ -81,8 +81,8 @@ const Membership = ({setselected}) => {
                         </Grid>
                     </Grid>
                 </Stack>
-                <Typography sx={{ fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 'bold', textAlign: 'center', marginTop: '20px' }}>Upgrade <span style={{ color: '#e50914' }}> Now </span></Typography>
-                <Stack sx={{ margin: { xs: "0px 20px", md: '0px 20px 0px 0px' } }}>
+                <Typography sx={{ fontSize: { xs: "1.25rem", md: "1.5rem" }, fontWeight: 'bold', textAlign: 'center', margin: '20px 0px' }}>Upgrade <span style={{ color: '#e50914' }}> Now </span></Typography>
+                <Stack sx={{ margin: { xs: "0px 10px", md: '0px 20px 0px 0px' } }}>
                     <Grid container sx={{ alignItems: 'center' }} spacing={2} >
                         <Grid item xs={12} md={4}>
                             <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between', gap: '20px', backgroundColor: '#242f3d', borderRadius: "10px", padding: { xs: '16px 20px', md: "26px 20px" } }}>

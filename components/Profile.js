@@ -84,7 +84,8 @@ const Profile = () => {
             </>}
             {!isLoading && user &&
                 <>
-                    <Alert sx={{ position: 'fixed', top: '7%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: showalert ? 100 : -1, opacity: showalert ? 1 : 0, transition: 'opacity 0.4s,z-index 1s', fontSize: { xs: '0.8rem', md: '1rem' }, minWidth: { xs: '80vw', md: 'inherit' }, alignItems: 'center' }} severity={alerttype}>{alertmsg}</Alert>
+                    <Alert sx={{ position: 'fixed', top: '7%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: showalert ? 100 : -1, opacity: showalert ? 1 : 0, transition: 'opacity 0.4s,z-index 1s', fontSize: { xs: '0.8rem', md: '1rem' }, minWidth: { xs: '80vw', md: 'inherit' }, alignItems: 'center' }} severity={alerttype}>{alertmsg}
+                    </Alert>
                     {/* <Stack sx={{ backgroundColor: '#242f3d', borderRadius: '10px', padding: { xs: '10px', md: "20px" }, alignItems: 'center', gap: '20px', margin: { xs: "0px 10px 10px", md: '0px 20px 0px 0px' }, '& input': { fontSize: { xs: '0.75rem', md: '1rem' } } }}>
                         <Typography sx={{ marginTop: '20px', color: 'white', fontWeight: 'bold', fontSize: { xs: '18px', md: '24px' }, whiteSpace: 'nowrap' }}><span style={{ color: '#e50914' }}>Edit </span>Profile</Typography>
                         <Stack direction={md ? "row" : 'column'} sx={{ flex: 1, width: { xs: '100%', md: '90%' }, gap: { xs: '5px', md: '20px' }, alignItems: { xs: 'start', md: 'center' } }}>

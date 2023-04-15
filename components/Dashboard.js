@@ -59,6 +59,11 @@ const Dashboard = ({ setselected }) => {
                     </Stack>
                 </>}
                 {user && !loading && <>
+                    <Stack direction="row" sx={{ margin: '20px 0px', alignItems: 'center', gap: '20px', backgroundColor: '#242f3d', borderRadius: "10px", padding: { xs: '16px 10px', md: "26px 20px" } }}>
+                        <Stack direction={md ? "row" : 'column'} sx={{ position: 'relative', flex: 1, width: { xs: '100%', md: '90%' }, gap: { xs: '5px', md: '20px' }, alignItems: { xs: 'start', md: 'center' } }}>
+                            <Typography sx={{fontWeight:'bold',textAlign:'center',margin:'auto',fontSize:{xs:'1rem',md:"1.25rem"}}}><span style={{color:''}}>Welcome</span> to E4A <span style={{color:'#e50914'}}>Referal</span> Program</Typography>
+                        </Stack>
+                    </Stack>
                     <Grid container sx={{ alignItems: 'center', marginBottom: '10px' }} spacing={2} >
                         <Grid item xs={12} md={3}>
                             <Stack sx={{ alignItems: 'center', gap: "10px", justifyContent: 'center' }}>

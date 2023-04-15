@@ -7,7 +7,7 @@ import axios from 'axios'
 import Alert from '@mui/material/Alert';
 import { useRouter } from 'next/router'
 import { URL } from "./url";
-const Register = () => {
+const Register = ({setValue}) => {
     const router = useRouter()
     const [email, setemail] = useState()
     const [name, setname] = useState()
@@ -19,7 +19,7 @@ const Register = () => {
     const [showcp, setshowcp] = useState(false)
     const [username, setusername] = useState()
     const [otp, setotp] = useState()
-    const [cotp, setcotp] = useState()
+    const [cotp, setcotp] = useState(1234567890)
     const [referedby, setreferedby] = useState(router.query.ref)
     const [password, setpassword] = useState()
     const [cpassword, setcpassword] = useState()
@@ -43,6 +43,7 @@ const Register = () => {
                 setshowalert(true)
                 setaletrtmsg(res.data.message)
                 setaletrttype('success')
+                setValue(1)
                 setTimeout(() => {
                     setshowalert(false)
                 }, 5000);
@@ -55,7 +56,7 @@ const Register = () => {
             setaletrttype('error')
             setTimeout(() => {
                 setshowalert(false)
-            }, 2000);
+            }, 5000);
             setisLoading(false)
         }
     }
@@ -90,6 +91,9 @@ const Register = () => {
             setmailing(false)
         }
     }
+    useEffect(()=>{
+        setcotp(1234567890)
+    },[email])
     return (
         <>
             <Alert sx={{ position: 'fixed', top: '7%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: showalert? 100: -1 , opacity: showalert ? 1 : 0, transition: 'opacity 0.4s,z-index 1s', fontSize: { xs: '0.8rem', md: '1rem' }, minWidth: { xs: '80vw', md: 'inherit' }, alignItems: 'center' }} severity={alerttype}>{alertmsg}</Alert> 

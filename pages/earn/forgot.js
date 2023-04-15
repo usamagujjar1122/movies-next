@@ -96,9 +96,22 @@ const Forgot = () => {
     // useEffect(() => {
     //     console.log(otp, cotp)
     // }, [otp])
+    const MAINTAIN = process.env.MAINTAIN
+
     return (
 
         <>
+         {MAINTAIN && <>
+                    <Stack sx={{ position: 'absolute', top: '50%', left: '50%', transform: 'translate(-50%,-50%)', alignItems: 'center' }}>
+                        <Typography sx={{ fontWeight: 'bold', whiteSpace: 'nowrap' }}>Under<span style={{ color: '#e50914' }}> Maintainance...</span> </Typography>
+                    </Stack>
+                    <Link href="/">
+                        <IconButton sx={{ width: '40px' , height: '40px' , zIndex: 100, position: 'fixed', bottom: { xs: '10%' }, right: { xs: '10%', md: '5%' }, background: "linear-gradient(to right,rgba(229,9,20,1),rgba(244,67,54,1))", boxShadow: "10px 10px 50px 10px rgba(0,0,0,1)" }}>
+                            <LiveTvIcon sx={{ color: 'white', width: '26px' , height: '26px' , transform: 'translateY(-2px)' }} />
+                        </IconButton>
+                    </Link>
+                </>}
+                {!MAINTAIN && <>
             <Alert sx={{ position: 'fixed', top: '7%', left: '50%', transform: 'translate(-50%,-50%)', zIndex: showalert ? 100 : -1, opacity: showalert ? 1 : 0, transition: 'opacity 0.4s,z-index 1s', fontSize: { xs: '0.8rem', md: '1rem' }, minWidth: { xs: '80vw', md: 'inherit' }, alignItems: 'center' }} severity={alerttype}>{alertmsg}</Alert>
             <Stack sx={{ backgroundColor: '#17212b !important', minHeight: '100vh' }}>
                 <Stack sx={{ padding: { xs: "10px", md: "30px" }, borderRadius: '10px', minHeight: { xs: '90vh', md: '80vh' }, maxHeight: { xs: '90vh', md: '80vh' }, overflowY: 'scroll', backgroundColor: '#2a3842', alignItems: 'center', '&::-webkit-scrollbar': { display: 'none' }, width: { xs: '90%', md: '60%' }, margin: 'auto' }}>
@@ -153,6 +166,7 @@ const Forgot = () => {
 
                 </Stack>
             </Stack>
+            </>}
         </>
     );
 }
