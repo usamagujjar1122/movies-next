@@ -74,7 +74,7 @@ const Register = () => {
                 setTimeout(() => {
                     setmailing(false)
                 }, 30000);
-            } 
+            }
             setTimeout(() => {
                 setmailing(false)
             }, 30000);
@@ -105,7 +105,7 @@ const Register = () => {
                 </Stack>
                 <Stack direction={md ? "row" : 'column'} sx={{ flex: 1, width: { xs: '100%', md: '90%' }, gap: { xs: '5px', md: '20px' }, alignItems: { xs: 'start', md: 'center' } }}>
                     <Typography sx={{ width: { xs: '100%', md: '30%' }, color: 'white', fontSize: { xs: "14px", md: '16px' } }}>Email:</Typography>
-                    <input key='email' type="text" style={{ background: 'transparent', color: 'white', border: '1px solid gray', width: '70%', padding: '10px', outline: 'none', width: '95%', borderRadius: '5px', fontWeight: '600' }} value={email} onChange={(e) => { setemail(e.target.value) }} />
+                    <input key='email' type="text" style={{ background: 'transparent', color: 'white', border: '1px solid gray', width: '70%', padding: '10px', outline: 'none', width: '95%', borderRadius: '5px', fontWeight: '600' }} value={email} onChange={(e) => { setemail(e.target.value);setcotp() }} />
                 </Stack>
                 <Stack direction={md ? "row" : 'column'} sx={{ position: 'relative', flex: 1, width: { xs: '100%', md: '90%' }, gap: { xs: '5px', md: '20px' }, alignItems: { xs: 'start', md: 'center' } }}>
                     <Typography sx={{ width: { xs: '100%', md: '30%' }, color: 'white', fontSize: { xs: "14px", md: '16px' } }}>OTP:</Typography>
@@ -129,7 +129,7 @@ const Register = () => {
                     </IconButton>
                 </Stack>
                 <Stack direction={md ? "row" : 'column'} sx={{ flex: 1, width: { xs: '100%', md: '90%' }, gap: { xs: '5px', md: '20px' }, alignItems: { xs: 'start', md: 'center' } }}>
-                    <Typography sx={{ width: { xs: '100%', md: '30%' }, color: 'white', fontSize: { xs: "14px", md: '16px' } }}>Refereed by:</Typography>
+                    <Typography sx={{ width: { xs: '100%', md: '30%' }, color: 'white', fontSize: { xs: "14px", md: '16px' } }}>Refered by:</Typography>
                     <input key='referedby' type="text" style={{ background: 'transparent', color: 'white', border: '1px solid gray', width: '70%', padding: '10px', outline: 'none', width: '95%', borderRadius: '5px', fontWeight: '600' }} value={referedby} onChange={(e) => { setreferedby(e.target.value) }} />
                 </Stack>
                 <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between', width: { xs: '100%', md: '90%' } }}>
@@ -137,7 +137,7 @@ const Register = () => {
                         {!isLoading && <Typography sx={{ fontSize: { xs: '12px', md: '16px' } }}>REGISTER</Typography>}
                         {isLoading && <CircularProgress sx={{ color: 'white', width: "24px !important", height: '24px !important', padding: "0px 8px" }} />}
                     </Button>
-                    <Link href="/forgot" style={{ textDecoration: 'none' }}><Typography sx={{ color: 'rgba(244,67,54,1)', '&:hover': { color: 'white' }, cursor: 'pointer' }}>Retrive password?</Typography></Link>
+                    <Link href="/earn/forgot" style={{ textDecoration: 'none' }}><Typography sx={{ color: 'rgba(244,67,54,1)', '&:hover': { color: 'white' }, cursor: 'pointer' }}>Retrive password?</Typography></Link>
                 </Stack>
             </Stack>
         </>

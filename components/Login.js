@@ -53,7 +53,7 @@ const Login = () => {
                         {!isLoading && <Typography sx={{ fontSize: { xs: '12px', md: '16px' } }}>LOGIN</Typography>}
                         {isLoading && <CircularProgress sx={{ color: 'white', width: "24px !important", height: '24px !important', padding: "0px 8px" }} />}
                     </Button>
-                    <Link href="/forgot" style={{ textDecoration: 'none' }}><Typography sx={{ color: 'rgba(244,67,54,1)', '&:hover': { color: 'white' }, cursor: 'pointer', fontSize: { xs: "0.9rem", md: "1rem" } }}>Retrive password?</Typography></Link>
+                    <Link href="/earn/forgot" style={{ textDecoration: 'none' }}><Typography sx={{ color: 'rgba(244,67,54,1)', '&:hover': { color: 'white' }, cursor: 'pointer', fontSize: { xs: "0.9rem", md: "1rem" } }}>Retrive password?</Typography></Link>
                 </Stack>
             </Stack>
         </>
