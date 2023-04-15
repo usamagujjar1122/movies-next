@@ -232,7 +232,7 @@ const Wallet = () => {
                             </Box>
                         </Stack>
                         <Stack direction={md ? "row" : 'column'} sx={{ flex: 1, width: { xs: '100%', md: '90%' }, gap: { xs: '10px', md: '20px' }, alignItems: { xs: 'start', md: 'center' } }}>
-                            <Typography sx={{ width: { xs: '100%', md: '30%' }, color: 'white', fontSize: { xs: "14px", md: '16px' } }}>Transaction ID:</Typography>
+                            <Typography sx={{ width: { xs: '100%', md: '30%' }, color: 'white', fontSize: { xs: "14px", md: '16px' } }}>{method === "USDT (TRC20) Address" ? "Transaction ID" : 'Your Pay ID'}:</Typography>
                             <Box sx={{ border: '1px solid gray', width: '100%', borderRadius: '5px', }}>
                                 <input key="country" type="text" style={{ background: 'transparent', color: 'white', border: 'none', padding: '10px', outline: 'none', width: '95%', fontWeight: '600' }} value={trxID} onChange={(e) => { settrxID(e.target.value) }} />
                             </Box>

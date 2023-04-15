@@ -38,16 +38,16 @@ const Dashboard = ({ setselected }) => {
         }, 5000);
     }
     let rewards = [
-        { dollar: 5, percentage: 25 },
-        { dollar: 3, percentage: 15 },
-        { dollar: 2, percentage: 10 },
-        { dollar: 1.6, percentage: 8 },
-        { dollar: 1.2, percentage: 6 },
-        { dollar: 0.8, percentage: 4 },
-        { dollar: 0.6, percentage: 3 },
-        { dollar: 0.4, percentage: 2 },
-        { dollar: 0.2, percentage: 1 },
-        { dollar: 0.2, percentage: 1 },
+        { dollar: 2.5, percentage: 25 },
+        { dollar: 1.5, percentage: 15 },
+        { dollar: 1, percentage: 10 },
+        { dollar: 0.8, percentage: 8 },
+        { dollar: 0.6, percentage: 6 },
+        { dollar: 0.4, percentage: 4 },
+        { dollar: 0.3, percentage: 3 },
+        { dollar: 0.2, percentage: 2 },
+        { dollar: 0.1, percentage: 1 },
+        { dollar: 0.1, percentage: 1 },
     ]
     return (
         <>

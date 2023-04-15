@@ -87,7 +87,7 @@ const Membership = ({setselected}) => {
                         <Grid item xs={12} md={4}>
                             <Stack direction="row" sx={{ alignItems: 'center', justifyContent: 'space-between', gap: '20px', backgroundColor: '#242f3d', borderRadius: "10px", padding: { xs: '16px 20px', md: "26px 20px" } }}>
                                 <Typography sx={{ color: '#e50914', fontSize: "2rem", fontWeight: 'bold' }} >VIP1</Typography>
-                                <Buttonn price={20} level={1} vip={user.vip} />
+                                <Buttonn price={10} level={1} vip={user.vip} />
                                 {/* <Typography sx={{ fontWeight: 'bold', fontSize: '1.25rem' }}>$10</Typography> */}
                             </Stack>
                         </Grid>
