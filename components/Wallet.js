@@ -25,9 +25,9 @@ const Wallet = () => {
     const [wmethod, setwmethod] = useState('USDT (TRC20) Address')
     const [waddress, setwaddress] = useState()
     const [trxID, settrxID] = useState()
-    const [amount, setamount] = useState(20)
+    const [amount, setamount] = useState(10)
     const [trcadd, setatrcadd] = useState("TD9JuLQsJWmexYihmcJNzxgSri1PftdHAn")
-    const [wamount, setwamount] = useState(10)
+    const [wamount, setwamount] = useState(5)
     const md = useMediaQuery('(min-width:800px)');
     const [isLoading, setisLoading] = useState(false)
     const [isLoading1, setisLoading1] = useState(false)
